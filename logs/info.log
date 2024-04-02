@@ -1,0 +1,1198 @@
+[31merror[39m: Cannot find module 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\utils\mongoose_connection.js' imported from E:\workspace\projects\nordic_park_project\Bilsjekkserverp\server.js {"timestamp":"2024-03-23 08:27:43"}
+[31merror[39m: Connection Error: mongodb_connection_string is not defined {"timestamp":"2024-03-23 08:39:42"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\create_qrcode.ejs:17
+    15|     <div class="wrapper">
+    16|         <%- include('../components/navbar') %>
+ >> 17|         <% if(isAdmin){ %>
+    18|             <%- include('../components/sidebar') %> 
+    19|         <% } else{%>
+    20|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-25 11:21:02"}
+[31merror[39m: Complaint validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-26 08:18:05"}
+[31merror[39m: Complaint validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-26 08:18:05"}
+[31merror[39m: Complaint validation failed: status: `Pending` is not a valid enum value for path `status`. {"timestamp":"2024-03-26 10:51:55"}
+[31merror[39m: Complaint validation failed: status: `Pending` is not a valid enum value for path `status`. {"timestamp":"2024-03-26 10:51:55"}
+[31merror[39m: User is not defined {"timestamp":"2024-03-27 23:45:36"}
+[31merror[39m: User is not defined {"timestamp":"2024-03-27 23:45:36"}
+[31merror[39m: accountId is not defined {"timestamp":"2024-03-29 00:16:45"}
+[31merror[39m: accountId is not defined {"timestamp":"2024-03-29 00:16:45"}
+[31merror[39m: bcrypt is not defined {"timestamp":"2024-03-29 00:17:19"}
+[31merror[39m: bcrypt is not defined {"timestamp":"2024-03-29 00:17:19"}
+[31merror[39m: User validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-29 00:18:25"}
+[31merror[39m: User validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-29 00:18:25"}
+[31merror[39m: User validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-29 00:18:28"}
+[31merror[39m: User validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-29 00:18:28"}
+[31merror[39m: E11000 duplicate key error collection: nordic.users index: accountId_1 dup key: { accountId: null } {"timestamp":"2024-03-29 00:19:14"}
+[31merror[39m: E11000 duplicate key error collection: nordic.users index: accountId_1 dup key: { accountId: null } {"timestamp":"2024-03-29 00:19:14"}
+[31merror[39m: resolve is not defined {"timestamp":"2024-03-29 00:20:14"}
+[31merror[39m: resolve is not defined {"timestamp":"2024-03-29 00:20:14"}
+[31merror[39m: User 'admin' already exists {"timestamp":"2024-03-29 00:21:32"}
+[31merror[39m: User 'admin' already exists {"timestamp":"2024-03-29 00:21:32"}
+[32minfo[39m: null {"timestamp":"2024-03-30 05:29:04"}
+[32minfo[39m: null {"timestamp":"2024-03-30 05:29:43"}
+[32minfo[39m: null {"timestamp":"2024-03-30 05:34:18"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:35:35"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:10"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:12"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:12"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:27"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:30"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:53"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:54"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:37:57"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:11
+    9| <div class="wrapper">
+    10|     <%- include('../components/navbar') %>
+ >> 11|     <% if(isAdmin){ %>
+    12|             <%- include('../components/sidebar') %> 
+    13|         <% } else{%>
+    14|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:38:46"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:13
+    11|     <div class="wrapper">
+    12|         <%- include('../components/navbar') %>
+ >> 13|             <!-- <% if(isAdmin){ %>
+    14|             <%- include('../components/sidebar') %> 
+    15|         <% } else{%>
+    16|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:39:10"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:13
+    11|     <div class="wrapper">
+    12|         <%- include('../components/navbar') %>
+ >> 13|             <!-- <% if(isAdmin){ %>
+    14|             <%- include('../components/sidebar') %> 
+    15|         <% } else{%>
+    16|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:39:10"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:21"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:21"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:21"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:26
+    24|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    25|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 26|                                                 <%= accountId %>
+    27|                                             </a></li>
+    28|                                         <li class="breadcrumb-item active">K.S</li>
+    29|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:25"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:26
+    24|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    25|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 26|                                                 <%= accountId %>
+    27|                                             </a></li>
+    28|                                         <li class="breadcrumb-item active">K.S</li>
+    29|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:26
+    24|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    25|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 26|                                                 <%= accountId %>
+    27|                                             </a></li>
+    28|                                         <li class="breadcrumb-item active">K.S</li>
+    29|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:26
+    24|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    25|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 26|                                                 <%= accountId %>
+    27|                                             </a></li>
+    28|                                         <li class="breadcrumb-item active">K.S</li>
+    29|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:26
+    24|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    25|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 26|                                                 <%= accountId %>
+    27|                                             </a></li>
+    28|                                         <li class="breadcrumb-item active">K.S</li>
+    29|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:30"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:39:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\users\violations.ejs:24
+    22|                                         <li class="breadcrumb-item"><a href="/users">Brukere</a></li>
+    23|                                         <li class="breadcrumb-item"><a href="/users">
+ >> 24|                                                 <%= accountId %>
+    25|                                             </a></li>
+    26|                                         <li class="breadcrumb-item active">K.S</li>
+    27|                                     </ol>
+
+accountId is not defined {"timestamp":"2024-03-30 05:40:00"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\car\create.ejs:17
+    15|     <div class="wrapper">
+    16|         <%- include('../components/navbar') %>
+ >> 17|         <% if(isAdmin){ %>
+    18|             <%- include('../components/sidebar') %> 
+    19|         <% } else{%>
+    20|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 05:44:44"}
+[31merror[39m: Car validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-30 05:46:04"}
+[31merror[39m: Car validation failed: created_at: Path `created_at` is required. {"timestamp":"2024-03-30 05:46:04"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\car\car_qrcode_view.ejs:9
+    7|     <div class="wrapper">
+    8|         <%- include('../components/navbar') %>
+ >> 9|         <% if(isAdmin){ %>
+    10|             <%- include('../components/sidebar') %> 
+    11|         <% } else{%>
+    12|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:05:08"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\car\update.ejs:16
+    14|     <div class="wrapper">
+    15|         <%- include('../components/navbar') %>
+ >> 16|         <% if(isAdmin){ %>
+    17|             <%- include('../components/sidebar') %> 
+    18|         <% } else{%>
+    19|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:07:29"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs:23
+    21|     <div class="wrapper">
+    22|         <%- include('../components/navbar') %>
+ >> 23|     <% if(isAdmin){ %>
+    24|             <%- include('../components/sidebar') %> 
+    25|         <% } else{%>
+    26|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:11:57"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:12:13"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:12:13"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:12:34"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:12:35"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:12:35"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:13:33"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:13:34"}
+[31merror[39m: Invalid or unexpected token in E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs while compiling ejs
+
+If the above error is not helpful, you may want to try EJS-Lint:
+https://github.com/RyanZim/EJS-Lint
+Or, if you meant to create an async function, pass `async: true` as an option. {"timestamp":"2024-03-30 06:13:48"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\index.ejs:25
+    23|     <div class="wrapper">
+    24|         <%- include('../components/navbar') %>
+ >> 25|             <% if(isAdmin){ %>
+    26|                 <%- include('../components/sidebar') %>
+    27|                     <% } else{%>
+    28|                         <%- include('../components/manager_sidebar', { permissions }) %>
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:14:43"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:17:14"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:17:14"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:18:34"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:18:34"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:18:39"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:18:39"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:20:08"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 06:20:08"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\location\update.ejs:18
+    16|     <div class="wrapper">
+    17|         <%- include('../components/navbar') %>
+ >> 18|         <% if(isAdmin){ %>
+    19|             <%- include('../components/sidebar') %> 
+    20|         <% } else{%>
+    21|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:24:20"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\zones\index.ejs:27
+    25|     <div class="wrapper">
+    26|         <%- include('../components/navbar') %>
+ >> 27|     <% if(isAdmin){ %>
+    28|             <%- include('../components/sidebar') %> 
+    29|         <% } else{%>
+    30|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 06:32:46"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\zones\index.ejs:75
+    73|                                 </thead>
+    74|                                 <tbody>
+ >> 75|                                     <% zones.forEach(function(zone) { %>
+    76|                                         <tr>
+    77|                                             <td><%= zone.name %></td>
+    78|                                             <td class="controls">
+
+zones.forEach is not a function {"timestamp":"2024-03-30 06:34:23"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\zones\index.ejs:75
+    73|                                 </thead>
+    74|                                 <tbody>
+ >> 75|                                     <% zones.forEach(function(zone) { %>
+    76|                                         <tr>
+    77|                                             <td><%= zone.name %></td>
+    78|                                             <td class="controls">
+
+zones.forEach is not a function {"timestamp":"2024-03-30 06:34:24"}
+[31merror[39m: OK is not defined {"timestamp":"2024-03-30 06:46:13"}
+[31merror[39m: OK is not defined {"timestamp":"2024-03-30 06:46:13"}
+[31merror[39m: E11000 duplicate key error collection: nordic.imeis index: serial_1 dup key: { serial: "SS" } {"timestamp":"2024-03-30 06:46:36"}
+[31merror[39m: E11000 duplicate key error collection: nordic.imeis index: serial_1 dup key: { serial: "SS" } {"timestamp":"2024-03-30 06:46:36"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\errors\internal.ejs:45
+    43|                   <p>
+    44|                     <span style="color:brown;">Reason: </span>
+ >> 45|                     <span><%= error %></span>
+    46|                   </p>
+    47|                 </div>
+    48|               </div>
+
+error is not defined {"timestamp":"2024-03-30 06:48:15"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\errors\internal.ejs:45
+    43|                   <p>
+    44|                     <span style="color:brown;">Reason: </span>
+ >> 45|                     <span><%= error %></span>
+    46|                   </p>
+    47|                 </div>
+    48|               </div>
+
+error is not defined {"timestamp":"2024-03-30 07:11:13"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\errors\internal.ejs:45
+    43|                   <p>
+    44|                     <span style="color:brown;">Reason: </span>
+ >> 45|                     <span><%= error %></span>
+    46|                   </p>
+    47|                 </div>
+    48|               </div>
+
+error is not defined {"timestamp":"2024-03-30 07:11:14"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\errors\internal.ejs:45
+    43|                   <p>
+    44|                     <span style="color:brown;">Reason: </span>
+ >> 45|                     <span><%= error %></span>
+    46|                   </p>
+    47|                 </div>
+    48|               </div>
+
+error is not defined {"timestamp":"2024-03-30 07:11:15"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 07:15:51"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories.ejs:88
+    86|                                         }
+    87|                                     %>
+ >> 88|                                     <% categories.forEach(category => { %>
+    89|                                         <tr>
+    90|                                             <td><%= category.name %></td>
+    91|                                             <td style="color: <%= importanceLevelColorJumpTable[category.importanceLevel] %>;"><%= importanceLevelJumpTable[category.importanceLevel]  %></td>
+
+categories.forEach is not a function {"timestamp":"2024-03-30 07:17:00"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories.ejs:88
+    86|                                         }
+    87|                                     %>
+ >> 88|                                     <% categories.forEach(category => { %>
+    89|                                         <tr>
+    90|                                             <td><%= category.name %></td>
+    91|                                             <td style="color: <%= importanceLevelColorJumpTable[category.importanceLevel] %>;"><%= importanceLevelJumpTable[category.importanceLevel]  %></td>
+
+categories.forEach is not a function {"timestamp":"2024-03-30 07:17:00"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories.ejs:88
+    86|                                         }
+    87|                                     %>
+ >> 88|                                     <% categories.forEach(category => { %>
+    89|                                         <tr>
+    90|                                             <td><%= category.name %></td>
+    91|                                             <td style="color: <%= importanceLevelColorJumpTable[category.importanceLevel] %>;"><%= importanceLevelJumpTable[category.importanceLevel]  %></td>
+
+categories.forEach is not a function {"timestamp":"2024-03-30 07:17:01"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories.ejs:88
+    86|                                         }
+    87|                                     %>
+ >> 88|                                     <% categories.forEach(category => { %>
+    89|                                         <tr>
+    90|                                             <td><%= category.name %></td>
+    91|                                             <td style="color: <%= importanceLevelColorJumpTable[category.importanceLevel] %>;"><%= importanceLevelJumpTable[category.importanceLevel]  %></td>
+
+categories.forEach is not a function {"timestamp":"2024-03-30 07:17:02"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\categories_create.ejs:17
+    15|     <div class="wrapper">
+    16|         <%- include('../components/navbar') %>
+ >> 17|         <% if(isAdmin){ %>
+    18|             <%- include('../components/sidebar') %> 
+    19|         <% } else{%>
+    20|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 07:17:55"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\machines\index.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 07:30:21"}
+[31merror[39m: _id is not defined {"timestamp":"2024-03-30 07:42:46"}
+[31merror[39m: _id is not defined {"timestamp":"2024-03-30 07:42:46"}
+[31merror[39m: _id is not defined {"timestamp":"2024-03-30 07:42:51"}
+[31merror[39m: _id is not defined {"timestamp":"2024-03-30 07:42:51"}
+[31merror[39m: serial is not defined {"timestamp":"2024-03-30 07:43:19"}
+[31merror[39m: serial is not defined {"timestamp":"2024-03-30 07:43:19"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-30 07:44:04"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-30 07:44:04"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-30 07:44:31"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-30 07:44:31"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\maps\read.ejs:27
+    25|     <div class="wrapper">
+    26|         <%- include('../components/navbar') %>
+ >> 27|     <% if(isAdmin){ %>
+    28|             <%- include('../components/sidebar') %> 
+    29|         <% } else{%>
+    30|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 07:49:02"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\settings\index.ejs:35
+    33|   <div class="wrapper">
+    34|     <%- include('../components/navbar') %>
+ >> 35|     <% if(isAdmin){ %>
+    36|             <%- include('../components/sidebar') %> 
+    37|         <% } else{%>
+    38|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 07:58:21"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\managers\create.ejs:34
+    32|         <div class="wrapper">
+    33|             <%- include('../components/navbar') %>
+ >> 34|             <% if(isAdmin){ %>
+    35|             <%- include('../components/sidebar') %> 
+    36|         <% } else{%>
+    37|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-03-30 08:11:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\index.ejs:81
+    79|                                             </thead>
+    80|                                             <tbody>
+ >> 81|                                                 <% if (cars.length> 0) { %>
+    82|                                                     <% cars.forEach(car=> { %>
+    83|                                                         <tr>
+    84|                                                             <td>
+
+cars is not defined {"timestamp":"2024-03-30 08:15:57"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\index.ejs:81
+    79|                                             </thead>
+    80|                                             <tbody>
+ >> 81|                                                 <% if (cars.length> 0) { %>
+    82|                                                     <% cars.forEach(car=> { %>
+    83|                                                         <tr>
+    84|                                                             <td>
+
+cars is not defined {"timestamp":"2024-03-30 08:16:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\index.ejs:81
+    79|                                             </thead>
+    80|                                             <tbody>
+ >> 81|                                                 <% if (complaints.length> 0) { %>
+    82|                                                     <% complaints.forEach(complaint => { %>
+    83|                                                         <tr>
+    84|                                                             <td>
+
+complaints is not defined {"timestamp":"2024-03-30 08:17:01"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\index.ejs:81
+    79|                                             </thead>
+    80|                                             <tbody>
+ >> 81|                                                 <% if (complaints.length> 0) { %>
+    82|                                                     <% complaints.forEach(complaint => { %>
+    83|                                                         <tr>
+    84|                                                             <td>
+
+complaints is not defined {"timestamp":"2024-03-30 08:17:02"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-03-30 10:50:58"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-03-30 10:50:58"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-03-30 10:51:28"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-03-30 10:51:28"}
+[31merror[39m: User 'alix' does not exist {"timestamp":"2024-03-30 10:52:48"}
+[31merror[39m: User 'alix' does not exist {"timestamp":"2024-03-30 10:52:48"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 11:11:36"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 11:11:36"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 11:12:29"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-30 11:12:29"}
+[31merror[39m: [null] {"timestamp":"2024-03-30 18:13:31"}
+[31merror[39m: [null] {"timestamp":"2024-03-30 18:13:31"}
+[31merror[39m: Cannot read properties of undefined (reading 'value') {"timestamp":"2024-03-30 18:17:36"}
+[31merror[39m: Cannot read properties of undefined (reading 'value') {"timestamp":"2024-03-30 18:17:36"}
+[31merror[39m: fields is not iterable {"timestamp":"2024-03-30 18:18:20"}
+[31merror[39m: fields is not iterable {"timestamp":"2024-03-30 18:18:20"}
+[31merror[39m: [{"field":"description","error":"description cannot be null or empty"}] {"timestamp":"2024-03-30 18:19:18"}
+[31merror[39m: [{"field":"description","error":"description cannot be null or empty"}] {"timestamp":"2024-03-30 18:19:18"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-30 18:56:53"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-30 18:56:53"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-30 18:58:58"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-30 18:58:58"}
+[31merror[39m: Complaint validation failed: description: Path `description` is required. {"timestamp":"2024-03-30 19:01:04"}
+[31merror[39m: Complaint validation failed: description: Path `description` is required. {"timestamp":"2024-03-30 19:01:04"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:41:01"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:41:01"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:41:58"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:41:58"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:43:01"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:43:01"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:45:06"}
+[31merror[39m: Cannot read properties of undefined (reading '_id') {"timestamp":"2024-03-31 05:45:06"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:46:21"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:46:21"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:47:35"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:47:35"}
+[31merror[39m: Location validation failed: created_at: Path `created_at` is required., complaint_qrcode: Path `complaint_qrcode` is required. {"timestamp":"2024-03-31 05:47:55"}
+[31merror[39m: Location validation failed: created_at: Path `created_at` is required., complaint_qrcode: Path `complaint_qrcode` is required. {"timestamp":"2024-03-31 05:47:55"}
+[31merror[39m: Location validation failed: complaint_qrcode: Path `complaint_qrcode` is required. {"timestamp":"2024-03-31 05:48:37"}
+[31merror[39m: Location validation failed: complaint_qrcode: Path `complaint_qrcode` is required. {"timestamp":"2024-03-31 05:48:37"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:49:00"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:49:00"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:49:31"}
+[31merror[39m: complaint is not defined {"timestamp":"2024-03-31 05:49:31"}
+[31merror[39m: Complaint validation failed: type: `Road` is not a valid enum value for path `type`. {"timestamp":"2024-03-31 06:15:37"}
+[31merror[39m: Complaint validation failed: type: `Road` is not a valid enum value for path `type`. {"timestamp":"2024-03-31 06:15:37"}
+[31merror[39m: Complaint validation failed: location.coords.lng: Path `location.coords.lng` is required., location.coords.lat: Path `location.coords.lat` is required., location.address: Path `location.address` is required., location.name: Path `location.name` is required. {"timestamp":"2024-03-31 09:08:53"}
+[31merror[39m: Complaint validation failed: location.coords.lng: Path `location.coords.lng` is required., location.coords.lat: Path `location.coords.lat` is required., location.address: Path `location.address` is required., location.name: Path `location.name` is required. {"timestamp":"2024-03-31 09:08:53"}
+[31merror[39m: Complaint validation failed: image: Cast to string failed for value "{
+  fieldname: 'image',
+  originalname: 'Screenshot 2024-01-10 185124.png',
+  encoding: '7bit',
+  mimetype: 'image/png',
+  destination: 'public/images/complaints/',
+  filename: 'complaint_image3bduj6mcixScreenshot 2024-01-10 185124.png',
+  path: 'public\\images\\complaints\\complaint_image3bduj6mcixScreenshot 2024-01-10 185124.png',
+  size: 271879
+}" (type Object) at path "image" {"timestamp":"2024-03-31 09:16:01"}
+[31merror[39m: Complaint validation failed: image: Cast to string failed for value "{
+  fieldname: 'image',
+  originalname: 'Screenshot 2024-01-10 185124.png',
+  encoding: '7bit',
+  mimetype: 'image/png',
+  destination: 'public/images/complaints/',
+  filename: 'complaint_image3bduj6mcixScreenshot 2024-01-10 185124.png',
+  path: 'public\\images\\complaints\\complaint_image3bduj6mcixScreenshot 2024-01-10 185124.png',
+  size: 271879
+}" (type Object) at path "image" {"timestamp":"2024-03-31 09:16:01"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:20:41"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:20:41"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:24:22"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:24:22"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:27:37"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-03-31 09:27:37"}
+[31merror[39m: An Open Complaint was found {"timestamp":"2024-03-31 09:34:28"}
+[31merror[39m: An Open Complaint was found {"timestamp":"2024-03-31 09:34:28"}
+[31merror[39m: Complaint validation failed: completed_by: `null` is not a valid enum value for path `completed_by`. {"timestamp":"2024-03-31 10:46:41"}
+[31merror[39m: Complaint validation failed: completed_by: `null` is not a valid enum value for path `completed_by`. {"timestamp":"2024-03-31 10:46:41"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\index.ejs:79
+    77|                                     </thead>
+    78|                                     <tbody>
+ >> 79|                                     <%if(formFields.length == 0){%>
+    80|                                         <tr>
+    81|                                             <td colspan="6">Ingen felt ennå</td>
+    82|                                         </tr>
+
+formFields is not defined {"timestamp":"2024-03-31 12:40:04"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\index.ejs:79
+    77|                                     </thead>
+    78|                                     <tbody>
+ >> 79|                                     <%if(formFields.length == 0){%>
+    80|                                         <tr>
+    81|                                             <td colspan="6">Ingen felt ennå</td>
+    82|                                         </tr>
+
+formFields is not defined {"timestamp":"2024-03-31 12:40:30"}
+[31merror[39m: GroupModel is not defined {"timestamp":"2024-03-31 12:41:34"}
+[31merror[39m: GroupModel is not defined {"timestamp":"2024-03-31 12:42:30"}
+[31merror[39m: GroupModel is not defined {"timestamp":"2024-03-31 12:42:30"}
+[31merror[39m: [{"field":"hasRequiredDescription","error":"hasRequiredDescription cannot be null or empty"}] {"timestamp":"2024-03-31 12:58:38"}
+[31merror[39m: [{"field":"hasRequiredDescription","error":"hasRequiredDescription cannot be null or empty"}] {"timestamp":"2024-03-31 12:58:38"}
+[31merror[39m: Failed to lookup view "fields/update" in views directory "E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views" {"timestamp":"2024-03-31 13:00:36"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:27
+    25|                     <li class="breadcrumb-item"><a href="/">Hjem</a></li>
+    26|                     <li class="breadcrumb-item"><a href="/fields">Enger</a></li>
+ >> 27|                     <li class="breadcrumb-item"><a href="/fields"><%= formField._id %></a></li>
+    28|                     <li class="breadcrumb-item active">Oppdater</li>
+    29|                     </ol>
+    30|                 </div><!-- /.col -->
+
+formField is not defined {"timestamp":"2024-03-31 13:01:17"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:27
+    25|                     <li class="breadcrumb-item"><a href="/">Hjem</a></li>
+    26|                     <li class="breadcrumb-item"><a href="/fields">Enger</a></li>
+ >> 27|                     <li class="breadcrumb-item"><a href="/fields"><%= formField._id %></a></li>
+    28|                     <li class="breadcrumb-item active">Oppdater</li>
+    29|                     </ol>
+    30|                 </div><!-- /.col -->
+
+formField is not defined {"timestamp":"2024-03-31 13:01:18"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:51
+    49|                                         <div class="form-group">
+    50|                                             <label for="title">Tittel</label>
+ >> 51|                                             <input type="text" class="form-control" id="title" name="title" value="<%= formField.title %>" required>
+    52|                                         </div>
+    53|                                         <div class="form-group">
+    54|                                             <label for="answerDataType">Svardatatype</label>
+
+formField is not defined {"timestamp":"2024-03-31 13:01:44"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:51
+    49|                                         <div class="form-group">
+    50|                                             <label for="title">Tittel</label>
+ >> 51|                                             <input type="text" class="form-control" id="title" name="title" value="<%= formField.title %>" required>
+    52|                                         </div>
+    53|                                         <div class="form-group">
+    54|                                             <label for="answerDataType">Svardatatype</label>
+
+formField is not defined {"timestamp":"2024-03-31 13:01:45"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:84
+    82|                                         <div class="form-group" id="requiredDescriptionGroup">
+    83|                                             <label for="requiredDescription">Nødvendig beskrivelse</label>
+ >> 84|                                             <input type="text" class="form-control" id="requiredDescription" name="requiredDescription" value="<%= formField.requiredDescription %>">
+    85|                                         </div>
+    86|                                 
+    87|                                         <div class="form-group form-check" style="display: none" id="hasRequiredDescriptionGroup">
+
+formField is not defined {"timestamp":"2024-03-31 13:02:13"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:84
+    82|                                         <div class="form-group" id="requiredDescriptionGroup">
+    83|                                             <label for="requiredDescription">Nødvendig beskrivelse</label>
+ >> 84|                                             <input type="text" class="form-control" id="requiredDescription" name="requiredDescription" value="<%= formField.requiredDescription %>">
+    85|                                         </div>
+    86|                                 
+    87|                                         <div class="form-group form-check" style="display: none" id="hasRequiredDescriptionGroup">
+
+formField is not defined {"timestamp":"2024-03-31 13:02:14"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:205
+    203|         const groupId = document.getElementById('group').value; // Get selected group value
+    204| 
+ >> 205|         const formFieldId = '<%= formField._id %>';
+    206| 
+    207|         fetch(`/admin/api/formFields/${formFieldId}`, {
+    208|             method: 'PUT',
+
+formField is not defined {"timestamp":"2024-03-31 13:02:35"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\fields\edit.ejs:205
+    203|         const groupId = document.getElementById('group').value; // Get selected group value
+    204| 
+ >> 205|         const formFieldId = '<%= formField._id %>';
+    206| 
+    207|         fetch(`/admin/api/formFields/${formFieldId}`, {
+    208|             method: 'PUT',
+
+formField is not defined {"timestamp":"2024-03-31 13:02:36"}
+[31merror[39m: _findOne is not defined {"timestamp":"2024-03-31 13:32:58"}
+[31merror[39m: _findOne is not defined {"timestamp":"2024-03-31 13:32:58"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-31 13:34:09"}
+[31merror[39m: result is not defined {"timestamp":"2024-03-31 13:34:09"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:34:28"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:34:28"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:35:50.pdf' {"timestamp":"2024-03-31 13:35:51"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:35:50.pdf' {"timestamp":"2024-03-31 13:35:51"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:38:05.pdf' {"timestamp":"2024-03-31 13:38:07"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:38:05.pdf' {"timestamp":"2024-03-31 13:38:07"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:40:30.pdf' {"timestamp":"2024-03-31 13:40:31"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:40:30.pdf' {"timestamp":"2024-03-31 13:40:31"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:42:15.pdf' {"timestamp":"2024-03-31 13:42:16"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:42:15.pdf' {"timestamp":"2024-03-31 13:42:16"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:43:10"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:43:10"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:43:47.pdf' {"timestamp":"2024-03-31 13:43:48"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 13:43:47.pdf' {"timestamp":"2024-03-31 13:43:48"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:44:32"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:44:32"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:45:03"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:45:03"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:46:00"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:46:00"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:48:34"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:48:34"}
+[31merror[39m: Error: Cannot destructure property 'information' of 'undefined' as it is undefined.,    at file:///E:/workspace/projects/nordic_park_project/Bilsjekkserverp/middlewares/promise_async_wrapper.js:10:32,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {"timestamp":"2024-03-31 13:50:21"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:50:21"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:53:03"}
+[31merror[39m: Cannot destructure property 'information' of 'undefined' as it is undefined. {"timestamp":"2024-03-31 13:53:03"}
+[31merror[39m: readFileSync is not defined {"timestamp":"2024-03-31 13:56:48"}
+[31merror[39m: readFileSync is not defined {"timestamp":"2024-03-31 13:56:48"}
+[31merror[39m: join is not defined {"timestamp":"2024-03-31 13:57:14"}
+[31merror[39m: join is not defined {"timestamp":"2024-03-31 13:57:14"}
+[31merror[39m: __dirname is not defined {"timestamp":"2024-03-31 13:57:43"}
+[31merror[39m: __dirname is not defined {"timestamp":"2024-03-31 13:57:43"}
+[31merror[39m: user is not defined {"timestamp":"2024-03-31 13:59:12"}
+[31merror[39m: user is not defined {"timestamp":"2024-03-31 13:59:12"}
+[31merror[39m: Cannot read properties of undefined (reading 'accountId') {"timestamp":"2024-03-31 14:01:15"}
+[31merror[39m: Cannot read properties of undefined (reading 'accountId') {"timestamp":"2024-03-31 14:01:15"}
+[31merror[39m: CarRepository.getCarByPnid is not a function {"timestamp":"2024-03-31 14:02:01"}
+[31merror[39m: CarRepository.getCarByPnid is not a function {"timestamp":"2024-03-31 14:02:01"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:02:34"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:02:34"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:03:26"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:03:26"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:05:31"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:05:31"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:06:59"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:06:59"}
+[31merror[39m: sendAlertSMS is not defined {"timestamp":"2024-03-31 14:07:29"}
+[31merror[39m: sendAlertSMS is not defined {"timestamp":"2024-03-31 14:07:29"}
+[31merror[39m: sendAlertMail is not defined {"timestamp":"2024-03-31 14:08:26"}
+[31merror[39m: sendAlertMail is not defined {"timestamp":"2024-03-31 14:08:26"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 14:10:52.pdf' {"timestamp":"2024-03-31 14:10:53"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_undefined_2024-03-31 14:10:52.pdf' {"timestamp":"2024-03-31 14:10:53"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:12:54.pdf' {"timestamp":"2024-03-31 14:12:55"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:12:54.pdf' {"timestamp":"2024-03-31 14:12:55"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:13:50.pdf' {"timestamp":"2024-03-31 14:13:51"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:13:50.pdf' {"timestamp":"2024-03-31 14:13:51"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:14:59.pdf' {"timestamp":"2024-03-31 14:15:00"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:14:59.pdf' {"timestamp":"2024-03-31 14:15:00"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:15:40.pdf' {"timestamp":"2024-03-31 14:15:41"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\Bilsjekkserverp\public\profiles\Betjent_ali_2024-03-31 14:15:40.pdf' {"timestamp":"2024-03-31 14:15:41"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\public\profiles\Betjent_ali_2024-03-31 14:17:40.pdf' {"timestamp":"2024-03-31 14:17:41"}
+[31merror[39m: ENOENT: no such file or directory, open 'E:\workspace\projects\nordic_park_project\public\profiles\Betjent_ali_2024-03-31 14:17:40.pdf' {"timestamp":"2024-03-31 14:17:41"}
+[31merror[39m: Randomstring is not defined {"timestamp":"2024-03-31 14:18:34"}
+[31merror[39m: Randomstring is not defined {"timestamp":"2024-03-31 14:18:34"}
+[31merror[39m: PDFArchieve validation failed: username: Path `username` is required. {"timestamp":"2024-03-31 14:18:54"}
+[31merror[39m: PDFArchieve validation failed: username: Path `username` is required. {"timestamp":"2024-03-31 14:18:54"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:23:18"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 14:23:18"}
+[31merror[39m: moment is not defined {"timestamp":"2024-03-31 14:23:40"}
+[31merror[39m: moment is not defined {"timestamp":"2024-03-31 14:23:40"}
+[31merror[39m: Violation validation failed: accountId: Path `accountId` is required. {"timestamp":"2024-03-31 14:23:55"}
+[31merror[39m: Violation validation failed: accountId: Path `accountId` is required. {"timestamp":"2024-03-31 14:23:55"}
+[31merror[39m: Cannot read properties of undefined (reading 'value') {"timestamp":"2024-03-31 14:24:11"}
+[31merror[39m: Cannot read properties of undefined (reading 'value') {"timestamp":"2024-03-31 14:24:11"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 20:10:57"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 20:10:57"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-03-31 20:11:17"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-03-31 20:11:17"}
+[31merror[39m: [{"field":"title","error":"title cannot be null or empty"},{"field":"body","error":"body cannot be null or empty"}] {"timestamp":"2024-03-31 20:12:05"}
+[31merror[39m: [{"field":"title","error":"title cannot be null or empty"},{"field":"body","error":"body cannot be null or empty"}] {"timestamp":"2024-03-31 20:12:05"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 20:12:43"}
+[31merror[39m: promiseAsyncWrapper is not defined {"timestamp":"2024-03-31 20:12:43"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-03-31 20:15:31"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-03-31 20:15:31"}
+[31merror[39m: Unexpected token b in JSON at position 3 {"timestamp":"2024-03-31 20:17:43"}
+[31merror[39m: Unexpected token b in JSON at position 3 {"timestamp":"2024-03-31 20:17:43"}
+[31merror[39m: [object Object] {"timestamp":"2024-03-31 23:35:56"}
+[31merror[39m: [object Object] {"timestamp":"2024-03-31 23:35:56"}
+[31merror[39m: [object Object],[object Object] {"timestamp":"2024-03-31 23:37:07"}
+[31merror[39m: [object Object],[object Object] {"timestamp":"2024-03-31 23:37:07"}
+[31merror[39m: Cannot convert object to primitive value {"timestamp":"2024-04-01 12:17:57"}
+[31merror[39m: Cannot convert object to primitive value {"timestamp":"2024-04-01 12:17:57"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-01 12:31:50"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-01 12:32:52"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-01 12:33:16"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:12:44"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:12:44"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:15"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:15"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:18"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:18"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:23"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:23"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:25"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:25"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:28"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:28"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:29"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:13:29"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:14:57"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:14:57"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:15:46"}
+[31merror[39m: data must only contain string values {"timestamp":"2024-04-01 13:15:46"}
+[31merror[39m: Notification validation failed: title: Path `title` is required., body: Path `body` is required. {"timestamp":"2024-04-01 13:16:13"}
+[31merror[39m: Notification validation failed: title: Path `title` is required., body: Path `body` is required. {"timestamp":"2024-04-01 13:16:14"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-04-01 13:36:40"}
+[31merror[39m: User 'undefined' does not exist {"timestamp":"2024-04-01 13:36:40"}
+[31merror[39m: Cannot access 'technician' before initialization {"timestamp":"2024-04-01 13:48:59"}
+[31merror[39m: Cannot access 'technician' before initialization {"timestamp":"2024-04-01 13:48:59"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 13:49:27"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 13:49:27"}
+[31merror[39m: Technician 'tec' does not exist {"timestamp":"2024-04-01 13:49:42"}
+[31merror[39m: Technician 'tec' does not exist {"timestamp":"2024-04-01 13:49:42"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:25:48"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:25:48"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:27:27"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:27:27"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:28:25"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:28:25"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:29:21"}
+[31merror[39m: Cast to Number failed for value "NaN" (type number) at path "total_waiting_time" {"timestamp":"2024-04-01 14:29:21"}
+[31merror[39m: User 'tec' does not exist {"timestamp":"2024-04-01 14:58:15"}
+[31merror[39m: User 'tec' does not exist {"timestamp":"2024-04-01 14:58:15"}
+[31merror[39m: Cannot destructure property 'machine_id' of 'undefined' as it is undefined. {"timestamp":"2024-04-01 15:07:02"}
+[31merror[39m: Cannot destructure property 'machine_id' of 'undefined' as it is undefined. {"timestamp":"2024-04-01 15:07:02"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 15:09:03"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 15:09:03"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 15:09:38"}
+[31merror[39m: reject is not defined {"timestamp":"2024-04-01 15:09:38"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-01 15:51:42"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-01 15:51:42"}
+[31merror[39m: log is not defined {"timestamp":"2024-04-01 15:53:32"}
+[31merror[39m: log is not defined {"timestamp":"2024-04-01 15:53:32"}
+[31merror[39m: log is not defined {"timestamp":"2024-04-01 15:59:52"}
+[31merror[39m: log is not defined {"timestamp":"2024-04-01 15:59:52"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\sms.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 16:29:55"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\sms.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 16:29:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\index.ejs:29
+    27|     <div class="wrapper">
+    28|         <%- include('../components/navbar') %>
+ >> 29|     <% if(isAdmin){ %>
+    30|             <%- include('../components/sidebar') %> 
+    31|         <% } else{%>
+    32|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 16:30:31"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\index.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 16:33:38"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\issues\index.ejs:24
+    22|         <%- include('../components/navbar') %>
+    23|         
+ >> 24|     <% if(isAdmin){ %>
+    25|             <%- include('../components/sidebar') %> 
+    26|         <% } else{%>
+    27|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 16:36:12"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-01 16:41:56"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-01 16:41:56"}
+[31merror[39m: duration is not defined {"timestamp":"2024-04-01 16:43:17"}
+[31merror[39m: duration is not defined {"timestamp":"2024-04-01 16:43:17"}
+[31merror[39m: Issue 'undefined' does not exist {"timestamp":"2024-04-01 17:22:07"}
+[31merror[39m: Issue 'undefined' does not exist {"timestamp":"2024-04-01 17:22:07"}
+[31merror[39m: Issue 'undefined' does not exist {"timestamp":"2024-04-01 17:22:13"}
+[31merror[39m: Issue 'undefined' does not exist {"timestamp":"2024-04-01 17:22:13"}
+[31merror[39m: findById is not defined {"timestamp":"2024-04-01 23:34:46"}
+[31merror[39m: findById is not defined {"timestamp":"2024-04-01 23:34:46"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:03"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:03"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:04"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:04"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:40"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:40"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:40"}
+[31merror[39m: req is not defined {"timestamp":"2024-04-01 23:35:40"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\pdf\pdf_show.ejs:17
+    15| <body class="hold-transition sidebar-mini">
+    16|     <div class="wrapper">
+ >> 17|         <% if(isAdmin){ %>
+    18|             <%- include('../components/sidebar') %> 
+    19|         <% } else{%>
+    20|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 23:36:05"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\pdf\pdf_show.ejs:17
+    15| <body class="hold-transition sidebar-mini">
+    16|     <div class="wrapper">
+ >> 17|         <% if(isAdmin){ %>
+    18|             <%- include('../components/sidebar') %> 
+    19|         <% } else{%>
+    20|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-01 23:36:06"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\scans\read.ejs:56
+    54|     <div class="wrapper">
+    55|         <%- include('../components/navbar') %>
+ >> 56|     <% if(isAdmin){ %>
+    57|             <%- include('../components/sidebar') %> 
+    58|         <% } else{%>
+    59|             <%- include('../components/manager_sidebar', { permissions }) %> 
+
+isAdmin is not defined {"timestamp":"2024-04-02 00:03:22"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:45:58"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:45:58"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:47:06"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:47:06"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:48:25"}
+[31merror[39m: Machine 'undefined' does not exist {"timestamp":"2024-04-02 10:48:25"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:894
+    892|           {
+    893|             name: 'Virker',
+ >> 894|             y: <%- activeMachines %>,
+    895|           },
+    896|           {
+    897|             name: 'På vent',
+
+activeMachines is not defined {"timestamp":"2024-04-02 11:19:11"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:516
+    514|                                         }
+    515|                                     %>
+ >> 516|                                         <% if (issues.length === 0) { %>
+    517|                                             <tr>
+    518|                                                 <td colspan="6">Ingen problemrapporter ennå</td>
+    519|                                             </tr>
+
+issues is not defined {"timestamp":"2024-04-02 11:39:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:1304
+    1302|     //           label: 'Total',
+    1303|     //           formatter: function (w) {
+ >> 1304|     //             let totalIssues = <%- issueGroupedIntoImportanceTotalIssues %>;
+    1305|     //             // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+    1306|     //             return totalIssues
+    1307|     //           }
+
+issueGroupedIntoImportanceTotalIssues is not defined {"timestamp":"2024-04-02 12:14:04"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:670
+    668|                                             </tr>
+    669|                                         <% } else { %>
+ >> 670|                                             <% reports.forEach(report => { %>
+    671|                                                 <tr>
+    672|                                                     <td><%= report.date %></td>
+    673|                                                     <td><%= report.serial %></td>
+
+reports.forEach is not a function {"timestamp":"2024-04-02 12:36:42"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:670
+    668|                                             </tr>
+    669|                                         <% } else { %>
+ >> 670|                                             <% reports.forEach(report => { %>
+    671|                                                 <tr>
+    672|                                                     <td><%= report.date %></td>
+    673|                                                     <td><%= report.serial %></td>
+
+reports.forEach is not a function {"timestamp":"2024-04-02 12:37:28"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:924
+    922| 
+    923| // Sample data (you can replace this with your actual data)
+ >> 924| var initialData = <%- parsedGroupedDates %>
+    925| 
+    926| function updateChart(data) {
+    927|   var options = {
+
+parsedGroupedDates is not defined {"timestamp":"2024-04-02 13:07:00"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:1175
+    1173|         chart.render();
+    1174| 
+ >> 1175| let holderSortableArray = <%- holderSortableArray %>;
+    1176| let progressContainer = document.getElementById('progress-container');
+    1177| for(let value of holderSortableArray){
+    1178|     /*
+
+holderSortableArray is not defined {"timestamp":"2024-04-02 13:33:29"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:1175
+    1173|         chart.render();
+    1174| 
+ >> 1175| let holderSortableArray = <%- completed_issues_grouped_by_identifiers %>;
+    1176| let progressContainer = document.getElementById('progress-container');
+    1177| for(let value of holderSortableArray){
+    1178|     /*
+
+completed_issues_grouped_by_identifiers is not defined {"timestamp":"2024-04-02 13:35:36"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\reports\dashboard.ejs:924
+    922| 
+    923| // Sample data (you can replace this with your actual data)
+ >> 924| var initialData = <%- parsedGroupedDates %>
+    925| 
+    926| function updateChart(data) {
+    927|   var options = {
+
+parsedGroupedDates is not defined {"timestamp":"2024-04-02 14:18:13"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:48:13"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:48:13"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:49:08"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:49:08"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:49:08"}
+[31merror[39m: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "ComplaintQrcode" {"timestamp":"2024-04-02 16:49:08"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\create.ejs:8
+    6|     <title>Opprett IMEI</title>
+    7|     <!-- Add Bootstrap CSS link -->
+ >> 8|     <%- include('../components/headers.ejs') %>
+    9|       <!-- SweetAlert2 -->
+    10|     <link rel="stylesheet" href="/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    11|     <!-- Toastr -->
+
+Could not find the include file "../components/headers.ejs" {"timestamp":"2024-04-02 16:49:23"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\create.ejs:70
+    68|     </div>
+    69| 
+ >> 70|         <%- include('../components/footer') %>
+    71|     </div>
+    72| 
+    73|     <%- include('../components/scripts.ejs') %>
+
+Could not find the include file "../components/footer" {"timestamp":"2024-04-02 16:50:14"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\create.ejs:70
+    68|     </div>
+    69| 
+ >> 70|         <%- include('../components/footer') %>
+    71|     </div>
+    72| 
+    73|     <%- include('../components/scripts.ejs') %>
+
+Could not find the include file "../components/footer" {"timestamp":"2024-04-02 16:50:15"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:9
+    7|     <title>Billiste</title>
+    8| 
+ >> 9|     <%- include('../components/headers') %>
+    10| 
+    11| 
+    12|         <!-- DataTables -->
+
+Could not find the include file "../components/headers" {"timestamp":"2024-04-02 17:01:02"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:9
+    7|     <title>Billiste</title>
+    8| 
+ >> 9|     <%- include('../components/headers') %>
+    10| 
+    11| 
+    12|         <!-- DataTables -->
+
+Could not find the include file "../components/headers" {"timestamp":"2024-04-02 17:02:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:157
+    155|                 </div>
+    156| 
+ >> 157|                 <%- include('../components/footer') %>
+    158|     </div>
+    159| 
+    160|     <div class="modal fade" id="confirmAllDeleteModal" tabindex="-1" role="dialog"
+
+Could not find the include file "../components/footer" {"timestamp":"2024-04-02 17:02:55"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:157
+    155|                 </div>
+    156| 
+ >> 157|                 <%- include('../components/footer') %>
+    158|     </div>
+    159| 
+    160|     <div class="modal fade" id="confirmAllDeleteModal" tabindex="-1" role="dialog"
+
+Could not find the include file "../components/footer" {"timestamp":"2024-04-02 17:02:56"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:96
+    94|                                                             </td>
+    95|                                                             <td class="controls">
+ >> 96|                                                                 <a href="/cars/<%= car._id %>/update"
+    97|                                                                     class="btn btn-sm btn-info mr-1">
+    98|                                                                     <i class="fas fa-edit"></i>
+    99|                                                                 </a>
+
+car is not defined {"timestamp":"2024-04-02 17:06:26"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:103
+    101|                                                                 <button class="btn btn-sm btn-danger"
+    102|                                                                     data-toggle="modal"
+ >> 103|                                                                     data-target="#deleteModal<%= car._id %>">
+    104|                                                                     <i class="fas fa-trash"></i>
+    105|                                                                 </button>
+    106|                                                             </td>
+
+car is not defined {"timestamp":"2024-04-02 17:07:02"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\qrcodes\index.ejs:103
+    101|                                                                 <button class="btn btn-sm btn-danger"
+    102|                                                                     data-toggle="modal"
+ >> 103|                                                                     data-target="#deleteModal<%= car._id %>">
+    104|                                                                     <i class="fas fa-trash"></i>
+    105|                                                                 </button>
+    106|                                                             </td>
+
+car is not defined {"timestamp":"2024-04-02 17:07:02"}
+[31merror[39m: Cast to ObjectId failed for value "qrcodes" (type string) at path "_id" for model "Complaint" {"timestamp":"2024-04-02 17:09:59"}
+[31merror[39m: Cast to ObjectId failed for value "qrcodes" (type string) at path "_id" for model "Complaint" {"timestamp":"2024-04-02 17:09:59"}
+[31merror[39m: ComplaintQrcode validation failed: location: Path `location` is required., location_owner_name: Path `location_owner_name` is required., phone_number: Path `phone_number` is required. {"timestamp":"2024-04-02 17:11:13"}
+[31merror[39m: ComplaintQrcode validation failed: location: Path `location` is required., location_owner_name: Path `location_owner_name` is required., phone_number: Path `phone_number` is required. {"timestamp":"2024-04-02 17:11:13"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:21"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:21"}
+[31merror[39m: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:46"}
+[31merror[39m: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:46"}
+[31merror[39m: Cast to ObjectId failed for value "6" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:48"}
+[31merror[39m: Cast to ObjectId failed for value "6" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:48"}
+[31merror[39m: Cast to ObjectId failed for value "5" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:50"}
+[31merror[39m: Cast to ObjectId failed for value "5" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:50"}
+[31merror[39m: Cast to ObjectId failed for value "6" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:52"}
+[31merror[39m: Cast to ObjectId failed for value "6" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:52"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:53"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:53"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:56"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:13:56"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:14:14"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:14:14"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:14:15"}
+[31merror[39m: Cast to ObjectId failed for value "0" (type string) at path "_id" for model "Violation" {"timestamp":"2024-04-02 17:14:15"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:16:37"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:16:37"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:16:37"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:16:37"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:17:04"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:17:04"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:17:53"}
+[31merror[39m: ViolationRepository.getTotalcountCount is not a function {"timestamp":"2024-04-02 17:17:53"}
+[31merror[39m: [object Object] {"timestamp":"2024-04-02 17:47:16"}
+[31merror[39m: [object Object] {"timestamp":"2024-04-02 17:47:16"}
+[31merror[39m: [object Object] {"timestamp":"2024-04-02 17:48:04"}
+[31merror[39m: [object Object] {"timestamp":"2024-04-02 17:48:04"}
+[31merror[39m: file is required {"timestamp":"2024-04-02 17:50:18"}
+[31merror[39m: file is required {"timestamp":"2024-04-02 17:50:18"}
+[31merror[39m: Complaint validation failed: national_id: Path `national_id` is required. {"timestamp":"2024-04-02 17:50:55"}
+[31merror[39m: Complaint validation failed: national_id: Path `national_id` is required. {"timestamp":"2024-04-02 17:50:55"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:52:24"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:53:18"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:54:09"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:54:34"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:56:29"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 17:57:35"}
+[31merror[39m: Unexpected field {"timestamp":"2024-04-02 18:19:13"}
