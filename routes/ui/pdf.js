@@ -49,9 +49,6 @@ router.get('/pdfs/:id', asyncWrapper(
 // READ - Get a specific PDF by ID
 router.get('/pdfs/:id/edit', async (req, res) => {
     try {
-        let jwt_access_token = req.cookies.jwt_token
-    let decoded = verify(jwt_access_token,process.env.JWT_SECRET_KEY)
-    let manager = await findOne({ _id: decoded.id })
 
         const pdf = await findById(req.params.id);
         if (!pdf) {
@@ -59,8 +56,6 @@ router.get('/pdfs/:id/edit', async (req, res) => {
         }
         return res.status(200).render('pdf/pdf_edit', { 
             pdf,
-            isAdmin: decoded.role === 'admin',
-      permissions: manager.permissions
          });
     } catch (error) {
         return res.status(500).json({ error: 'Internal Server Error' });

@@ -125,7 +125,7 @@ app.get('/archieves/:id', async (req, res) => {
     }
 });
 
-app.get('/admin/api/logout',(req,res) =>{
+app.get('/api/logout',(req,res) =>{
 
     res.cookie('is_logged',{
         expires: Date.now()
@@ -138,7 +138,7 @@ app.get('/admin/api/logout',(req,res) =>{
     return res.redirect('/')
 })
 
-app.post('/admin/api/login', async (req,res) =>{
+app.post('/api/login', async (req,res) =>{
     const { username, password } = req.body
     const manager = await Manager.findOne({ username });
 
@@ -270,7 +270,7 @@ import ComplaintUi from './routes/ui/complaints.js';
 
 
 app.use(
-    // authenticate_front,
+    authenticate_front,
     // authorize_front,
     issuesFront,
     mapFront,

@@ -1,14 +1,15 @@
 import jwt from 'jsonwebtoken';
 import { jwt_secret_key } from '../config.js';
+import Auth from '../repositories/Auth.js';
 
-const authenticate_front = (req,res,next) => {
+const authenticate_front = async (req,res,next) => {
     try{
         if(req.url.includes('login')){
             return next()
         }
 
         let jwt_token = req.cookies.jwt_token
-        let decoded = jwt.verify(jwt_token,jwt_secret_key)
+        let decoded = await Auth.verifyToken(jwt_token)
         let isLogged = req.cookies.is_logged
 
         if(decoded && isLogged == 'true'){

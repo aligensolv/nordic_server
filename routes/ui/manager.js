@@ -44,14 +44,13 @@ router.get('/managers/:id/update', async (req, res) => {
 
 router.get('/managers/dashboard', async (req, res) => {
     try{
-        let jwt_token = req.cookies.jwt_token
-        let decoded = verify(jwt_token,process.env.JWT_SECRET_KEY)
+        // let jwt_token = req.cookies.jwt_token
+        // let decoded = verify(jwt_token,process.env.JWT_SECRET_KEY)
 
-        let manager = await findOne({ _id: decoded.id })
-        let permissions = manager.permissions
+        // let manager = await findOne({ _id: decoded.id })
+        // let permissions = manager.permissions
 
         return res.render('managers/dashboard',{
-            permissions
         })
     }catch(e){
 

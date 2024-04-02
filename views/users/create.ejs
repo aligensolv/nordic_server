@@ -14,11 +14,8 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <%- include('../components/navbar') %>
-        <% if(isAdmin){ %>
-            <%- include('../components/sidebar') %> 
-        <% } else{%>
-            <%- include('../components/manager_sidebar', { permissions }) %> 
-        <% } %>  
+
+        <%- include('../components/sidebar') %>
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

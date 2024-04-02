@@ -59,7 +59,7 @@
                 let username = document.querySelector('#username')
                 let password = document.querySelector('#password')
 
-                let response = await fetch('/admin/api/login',{
+                let response = await fetch('/api/login',{
                     method:'POST',headers:{'Content-Type':'application/json'}, body : JSON.stringify({
                         'username':username.value,
                         'password':password.value
@@ -76,11 +76,7 @@
                       if(json.role == 'admin'){
                         location.href = '/'
                       }else{
-                        if(json.permissions.some(p => p.route == 'dashboard')){
-                          location.href = '/reports/dashboard'
-                        }else{
-                          location.href = '/managers/dashboard'
-                        }
+                        location.href = '/managers/dashboard'
                       }
                     },2000)
                 }
