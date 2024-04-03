@@ -43,7 +43,7 @@ class ImeiRepository{
             promiseAsyncWrapper(async (resolve) => {
                 const result = await IMEI.create({ 
                     name, serial, zone,
-                    created_at: moment().format("YYYY-MM-DD HH:mm:ss")
+                    created_at: moment().format("DD.MM.YYYY HH:mm:ss")
                 });
                 return resolve(result)
             })

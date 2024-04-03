@@ -14,7 +14,7 @@ class AccidentRepository{
     static async createAccident({ content, pnid, username, private_number, board_number }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
                 const creation_time = moment().format('HH:mm:ss')
                 
                 const result = await Accident.create({

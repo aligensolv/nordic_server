@@ -211,7 +211,7 @@ class IssueRepository{
 
                 if(publisher == 'driver'){
                     issue.wasRedirected = true
-                    issue.redirectStartTime = moment(current_date).format('YYYY-MM-DD HH:mm:ss')
+                    issue.redirectStartTime = moment(current_date).format('DD.MM.YYYY HH:mm:ss')
                 }    
 
                 await issue.save()

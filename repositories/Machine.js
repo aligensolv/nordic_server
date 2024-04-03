@@ -72,7 +72,7 @@ class MachineRepository{
     static async createMachine({ serial,zone,shiftNumber,zoneLocation,categories,latitude,longitude }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                let lastActiveTime = moment().format('YYYY-MM-DD HH:mm:ss')
+                let lastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss')
                 const machine = new Machine({ 
                     serial,zone,shiftNumber,zoneLocation,categories,latitude,longitude,lastActiveTime
                 });
@@ -154,10 +154,10 @@ class MachineRepository{
                     return reject(machine_not_found_error)
                 }
 
-                let newLastActiveTime = moment().format('YYYY-MM-DD HH:mm:ss')
+                let newLastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss')
         
-                let lastActiveTime = moment(moment(machine.lastActiveTime).format('YYYY-MM-DD HH:mm:ss'))
-                let currentTime = moment(moment().format('YYYY-MM-DD HH:mm:ss'))
+                let lastActiveTime = moment(moment(machine.lastActiveTime).format('DD.MM.YYYY HH:mm:ss'))
+                let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
         
                 let diff = moment.duration(currentTime.diff(lastActiveTime))
                 let newTotalTime = machine.totalWorkingTime + +diff.asHours().toFixed(2)

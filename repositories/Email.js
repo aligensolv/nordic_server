@@ -9,7 +9,7 @@ class EmailRepository{
             promiseAsyncWrapper(async (resolve) => {
                 await ValidatorRepository.isEmail(to)
                 
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
                 const email = await Email.create({ to, subject, content, text, html, created_at })
                 return resolve(email)
             })

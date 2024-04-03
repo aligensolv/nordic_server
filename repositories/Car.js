@@ -31,7 +31,7 @@ class CarRepository{
                     return reject(car_already_exists_error)
                 }
 
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
 
                 const car = new Car({
                     boardNumber, privateNumber, kilometers, created_at

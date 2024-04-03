@@ -1,6 +1,7 @@
 import asyncWrapper from '../middlewares/async_wrapper.js'
 import DriverReportRepository from '../repositories/DriverReport.js'
 import { OK } from '../constants/status_codes.js'
+import { static_absolute_files_host } from '../config.js'
 
 export const createNewDriver = asyncWrapper(async (req,res) =>{
 
@@ -26,7 +27,7 @@ export const createNewDriver = asyncWrapper(async (req,res) =>{
             groupedImages[fieldname] = [];
         }
         groupedImages[fieldname].push({
-            path: process.env.BASE_URL + image.path.split('public')[1].replaceAll('\\','/'),
+            path: static_absolute_files_host + image.path.split('public')[1].replaceAll('\\','/'),
         });
     }
 

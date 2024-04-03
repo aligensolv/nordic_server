@@ -27,7 +27,7 @@ class SmsRepository{
     static async storeSms({ delivered_to, total_received, content, about, sender }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                let delivery_date = moment().format('YYYY-MM-DD HH:mm:ss')
+                let delivery_date = moment().format('DD.MM.YYYY HH:mm:ss')
 
                 const sms = await SMS.create({ delivery_date, delivered_to, total_received, content, about, sender })
                 return resolve(sms)

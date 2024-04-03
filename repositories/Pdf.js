@@ -10,7 +10,7 @@ class PdfRepository{
     static async storePdf({ filename, user_id }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
                 const creation_time = moment().format('HH:mm:ss')
 
                 let pdf = await Pdf.create({

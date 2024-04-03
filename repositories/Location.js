@@ -60,7 +60,7 @@ class LocationRepository{
     static async createLocation({ location, days, shifts }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
                 const result = await Location.create({ location, days, shifts, created_at });
                 return resolve(result)
             })
