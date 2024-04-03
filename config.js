@@ -50,6 +50,9 @@ export const vps_pass = process.env.VPS_PASS
 
 export const firebase_notification_topic = process.env.FIREBASE_NOTIFICATION_TOPIC
 
+export const nordic_client_ticket_host = process.env.NORDIC_CLIENT_TICKET_HOST
+export const nordic_complaint_client_host = process.env.NORDIC_COMPLAINT_CLIENT_HOST
+
 
 export const driver_report_template = readFileSync('templates/driver.html', 'utf8')
 export const compiled_driver_report_template = Handlebars.compile(driver_report_template)

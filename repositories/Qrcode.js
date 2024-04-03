@@ -2,7 +2,7 @@ import Qrcode from "qr-image";
 import { createWriteStream } from "fs";
 
 import promiseAsyncWrapper from "../middlewares/promise_async_wrapper.js";
-import { static_absolute_files_host } from "../config.js";
+import { nordic_client_ticket_host, nordic_complaint_client_host, static_absolute_files_host } from "../config.js";
 import Randomstring from "randomstring"
 
 class QrcodeRepository{
@@ -34,7 +34,7 @@ class QrcodeRepository{
     static async generateMachineQrcode(machine){
         return new Promise(
             promiseAsyncWrapper(async (resolve, reject) => {
-                const link = `https://klage.ryl.no/machines/${machine._id}`
+                const link = `${nordic_client_ticket_host}/machines/${machine._id}`
                 
                 // klage.ryl.no/machines/${machine._id}
                 const generated = Qrcode.image(link, { type: 'png' });
@@ -56,7 +56,7 @@ class QrcodeRepository{
     static async generateComplaintQrcode({ location, phone_number }){
         return new Promise(
             promiseAsyncWrapper(async (resolve, reject) => {
-                const link = `http://localhost:5173/complaints/create?location=${location}&phone_number=${phone_number}`
+                const link = `${nordic_complaint_client_host}/complaints/create?location=${location}&phone_number=${phone_number}`
                 
                 // klage.ryl.no/complaints/${complaint._id}
                 const generated = Qrcode.image(link, { type: 'png' });
