@@ -4,10 +4,11 @@ import CustomError from "../interfaces/custom_error_class.js"
 import promiseAsyncWrapepr from "../middlewares/promise_async_wrapper.js"
 import Complaint from "../models/Complaint.js"
 import QrcodeRepository from "./Qrcode.js"
-import LocationRepository from "./Location.js"
 import Auth from "./Auth.js"
 import SmsRepository from "./Sms.js"
 import UserRepository from "./User.js"
+import { manager_phone_number } from "../config.js"
+import NotificationManager from "./NotificationManager.js"
 
 class ComplaintRepository{
     static async getAllComplaints(status){
@@ -66,6 +67,24 @@ class ComplaintRepository{
                     let complaint_not_found_error = new CustomError('Failed to create complaint', INTERNAL_SERVER)
                     return reject(complaint_not_found_error)
                 }
+
+                await SmsRepository.sendMessage({
+                    to: manager_phone_number,
+                    message: `Complaint was requested at ${location.address}`
+                })
+
+                await SmsRepository.storeSms({
+                    phone_number: manager_phone_number,
+                    message: `Complaint was requested at ${location.address}`,
+                    about: 'Complaint',
+                    sender: 'System',
+                    total_received: 1
+                })
+
+                await NotificationManager.sendNotificaitonToAllUsers({
+                    title: 'Complaint Requested',
+                    body: `Complaint was requested at ${location.address}`
+                })
 
                 return resolve(createdComplaint)
             })
