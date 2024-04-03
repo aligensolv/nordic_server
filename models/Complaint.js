@@ -13,7 +13,12 @@ const complaintSchema = new mongoose.Schema({
 
     phone_number: {
         type: String,
-        required: true
+        default: null
+    },
+
+    is_following: {
+        type: Boolean,
+        default: false
     },
 
     created_at: {

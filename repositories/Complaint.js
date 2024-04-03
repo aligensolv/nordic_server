@@ -50,7 +50,7 @@ class ComplaintRepository{
     }
 
 
-    static async createComplaint({ type, phone_number, location, image, other_type_description }){
+    static async createComplaint({ type, phone_number, location, image, other_type_description, is_following }){
         return new Promise(
             promiseAsyncWrapepr(async (resolve, reject) => {
 
@@ -58,6 +58,7 @@ class ComplaintRepository{
                 const createdComplaint = await Complaint.create({
                     phone_number, location, image,
                     type: type.toLowerCase() == 'other' ? other_type_description : type,
+                    is_following,
                     created_at: created_at
                 })
 
@@ -186,7 +187,7 @@ class ComplaintRepository{
                     was_solved, was_violated, violation_image, not_violated_reason
                 });
 
-                if(was_solved) {
+                if(was_solved && complaint.is_following) {
                     await SmsRepository.sendMessage({
                         message: `Your complaint has been solved. Thank you.`,
                         to: updatedComplaint.phone_number
