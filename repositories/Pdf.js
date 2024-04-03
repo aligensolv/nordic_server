@@ -1,10 +1,10 @@
 import moment from "moment"
 import Pdf from "../models/PDF.js"
-import { base_url } from "../config.js"
 import promiseAsyncWrapper from "../middlewares/promise_async_wrapper.js"
 import ViolationRepository from "./Violation.js"
 import CustomError from "../interfaces/custom_error_class.js"
 import { NOT_FOUND } from "../constants/status_codes.js"
+import { static_absolute_files_host } from "../config.js"
 
 class PdfRepository{
     static async storePdf({ filename, user_id }){
@@ -15,7 +15,7 @@ class PdfRepository{
 
                 let pdf = await Pdf.create({
                     name: filename,
-                    link: base_url + 'profiles/' + filename,
+                    link: static_absolute_files_host + 'profiles/' + filename,
                     createdAt: created_at,
                     time: creation_time,
                     userId: user_id
