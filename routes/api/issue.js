@@ -420,7 +420,7 @@ await SmsRepository.storeSms({
     sender: 'System',
     delivered_to: drivers_phone_numbers,
     content: driversFormattedMessage,
-    total_received: drivers.length,
+    total_received: drivers_phone_numbers.length,
     about: 'issue redirected by driver',
 })
 
