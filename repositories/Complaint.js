@@ -75,7 +75,7 @@ class ComplaintRepository{
 
                 await SmsRepository.storeSms({
                     phone_number: manager_phone_number,
-                    message: `Complaint was requested at ${location.address}`,
+                    content: `Complaint was requested at ${location.address}`,
                     about: 'Complaint',
                     sender: 'System',
                     total_received: 1
