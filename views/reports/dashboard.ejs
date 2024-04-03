@@ -969,7 +969,7 @@ function updateChart(data) {
     },
     xaxis: {
       type: 'datetime',
-      categories: data.map(item => moment(item.date).format('YYYY-MM-DD'))
+      categories: data.map(item => moment(item.date).format('DD.MM.YYYY'))
     },
 
     plotOptions: {
@@ -1063,19 +1063,19 @@ let liveTimes = document.querySelectorAll('.live-time')
 
      //Date picker
      $('#reservationdate').daterangepicker({ sideBySide: true, debug: true }).on('apply.daterangepicker', async function (e, picker) {
-    var startDate = picker.startDate.format('YYYY-MM-DD');
-    var endDate = picker.endDate.format('YYYY-MM-DD');
+    var startDate = picker.startDate.format('DD.MM.YYYY');
+    var endDate = picker.endDate.format('DD.MM.YYYY');
 
     initalizeGeneralNumbers()
 })
      //Date picker
      $('#reservationdateF').daterangepicker({ sideBySide: true, debug: true }).on('apply.daterangepicker', async function (e, picker) {
-    var startDate = picker.startDate.format('YYYY-MM-DD');
-    var endDate = picker.endDate.format('YYYY-MM-DD');
+    var startDate = picker.startDate.format('DD.MM.YYYY');
+    var endDate = picker.endDate.format('DD.MM.YYYY');
 
     // Sample data filtering logic based on date range
     var filteredData = initialData.filter(item => {
-        var currentDate = moment(moment(item.date).format('YYYY-MM-DD'));
+        var currentDate = moment(moment(item.date).format('DD.MM.YYYY'));
         return currentDate.isBetween(startDate, endDate, null, "[]");
     });
     

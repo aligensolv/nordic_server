@@ -434,3 +434,4 @@
 {"level":"error","message":"Unexpected field","timestamp":"2024-04-02 17:56:29"}
 {"level":"error","message":"Unexpected field","timestamp":"2024-04-02 17:57:35"}
 {"level":"error","message":"Unexpected field","timestamp":"2024-04-02 18:19:13"}
+{"level":"error","message":"E:\\workspace\\projects\\nordic_park_project\\Bilsjekkserverp\\views\\pdfArchieve\\pdf_list.ejs:74\n    72|                                 </thead>\r\n    73|                                 <tbody>\r\n >> 74|                                     <%if(pdfs.length == 0){%>\r\n    75|                                         <tr>\r\n    76|                                             <td colspan=\"5\">Ingen pdf-er ennå</td>\r\n    77|                                         </tr>\r\n\npdfs is not defined","timestamp":"2024-04-03 05:21:24"}

@@ -78,7 +78,7 @@
                                     <%} else{%>
                                         <% pdfs.forEach(pdf => { %>
                                             <tr>
-                                                <td><%= pdf.createdAt %></td>
+                                                <td><%= pdf.created_at %></td>
                                                 <td><%= pdf.username ?? 'Fjernet'  %></td>
                                                 <td><%= pdf.accountId ?? "Ukjent"  %></td>
                                                 <td>
@@ -168,7 +168,7 @@
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        let date =  moment(e.date._d).format('DD.MM.YYYY')
         console.log(date);
     })
 </script>

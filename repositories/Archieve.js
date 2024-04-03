@@ -6,7 +6,7 @@ class ArchieveRepository{
     static async storeArchieve({ pdf, user }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
 
                 let archieve = await PdfArchieve.create({
                     name: pdf.name,
@@ -27,6 +27,15 @@ class ArchieveRepository{
             promiseAsyncWrapper(async (resolve) => {
                 const archives = await PdfArchieve.find({}).sort({ created_at: -1 })
                 return resolve(archives)
+            })
+        )
+    }
+
+    static async getArchiveById(id){
+        return new Promise(
+            promiseAsyncWrapper(async (resolve) => {
+                const archive = await PdfArchieve.findById(id)
+                return resolve(archive)
             })
         )
     }

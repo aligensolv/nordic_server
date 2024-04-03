@@ -46,84 +46,8 @@ app.get('/rp', async (req, res) => {
 
 
 
-app.get('/archieve',async (req,res) =>{
-    let jwt_access_token = req.cookies.jwt_token
-    let decoded = jwt.verify(jwt_access_token,jwt_secret_key)
-    let manager = await findOne({ _id: decoded.id })
 
-    let archieves = await find({})
-    return res.status(200).render('pdfArchieve/pdf_list',{
-        pdfs: archieves,
-        isAdmin: decoded.role === 'admin',
-      permissions: manager.permissions
-    })
-})
 
-app.post('/api/archieves', async (req,res) =>{
-    try{
-        let pdfs = await Pdf.find({})
-
-        for(let pdf of pdfs){
-            try{
-                let pop = await pdf.populate({
-                    path: 'userId',
-                    ref: 'User'
-                })
-                
-                if(pdf == null){
-                    continue
-                }
-    
-                let isExisting = await _findOne({
-                    accountId: pdf.userId.accountId,
-                    link:pdf.link,
-                    createdAt:pdf.createdAt
-                })
-    
-                if(!isExisting){
-                    continue;
-                }
-    
-                let archieve = new PDFArchieve({
-                    name:pdf.name,
-                    username:pdf.userId.name,
-                    accountId:pdf.userId.accountId,
-                    link:pdf.link,
-                    createdAt:pdf.createdAt,
-                })
-    
-                await archieve.save()
-            }catch(err){
-                continue
-            }
-        }
-
-        return res.sendStatus(200) 
-    }catch(error){
-        return res.status(500).json(error.message)
-    }
-})
-
-app.get('/archieves/:id', async (req, res) => {
-    try {
-        let jwt_access_token = req.cookies.jwt_token
-    let decoded = verify(jwt_access_token,process.env.JWT_SECRET_KEY)
-    let manager = await findOne({ _id: decoded.id })
-
-        const pdf = await findById(req.params.id);
-        if (!pdf) {
-            return res.status(404).json({ error: 'PDF not found' });
-        }
-        let link = pdf.link.split('.in')[1]
-        return res.status(200).render('pdfArchieve/pdf_show.ejs', { 
-            link,
-            isAdmin: decoded.role === 'admin',
-      permissions: manager.permissions
-         });
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
-    }
-});
 
 app.get('/api/logout',(req,res) =>{
 
@@ -210,6 +134,7 @@ import issuesRouter from './routes/api/issue.js';
 import issueCategoriyRoute from './routes/api/issue_category.js';
 import reportRouter from './routes/api/issue_report.js';
 import issueReportRouter from './routes/api/issueReportRoute.js';
+import ArchieveRouter from './routes/api/archieve.js';
 
 import ManagerRoute from './routes/api/manager.js';
 
@@ -219,6 +144,7 @@ app.use(
     vpsRouter,
     reportRouter,
     issuesRouter,
+    ArchieveRouter,
     machinesRouter,
     scanRouter,
     notificationRouter,
@@ -263,6 +189,7 @@ import issueNotificationFront from './routes/ui/issue_notification.js';
 import issueReportFront from './routes/ui/issue_report.js';
 import managerFront from './routes/ui/manager.js';
 import issuesFront from './routes/ui/issue_category.js';
+import ArchieveFront from './routes/ui/archieve.js';
 
 import authenticate_front from './middlewares/authenticate.js';
 
@@ -291,7 +218,8 @@ app.use(
     locationFront,
     zonesFront,
     ComplaintUi,
-    imeiFront
+    imeiFront,
+    ArchieveFront
 )
 
 import ComplaintsUi from './routes/ui/complaints.js'

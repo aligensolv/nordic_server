@@ -173,7 +173,7 @@
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        let date =  moment(e.date._d).format('DD.MM.YYYY')
         console.log(date);
     })
 </script>
@@ -221,7 +221,7 @@
 
     async function archieveAll(){
         try{
-            let response = await fetch('/admin/api/archieves',{
+            let response = await fetch('/api/archieves',{
                 method:'POST'
             })
 
@@ -311,19 +311,17 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'L'
+        format: 'DD.MM.YYYY',
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        let date =  moment(e.date._d).format('DD.MM.YYYY')
         filterTableByDate(date)
     })
 
     $(document).ready(function() {
-      const now = new Date();
-      const localDate = new Date(now.getTime() - (now.getTimezoneOffset() * 60000));
-      const localDateString = localDate.toISOString().split('T')[0];
-      filterTableByDate(localDateString)
+      const now = moment().format('DD.MM.YYYY')
+      filterTableByDate(now)
     });
 
 
