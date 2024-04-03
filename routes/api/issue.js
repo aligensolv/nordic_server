@@ -64,7 +64,7 @@ router.post('/issues/:id/technician/reports', async (req, res) => {
         })
 
 
-        let currentDate = moment().format('YYYY-MM-DD HH:mm:ss')
+        let currentDate = moment().format('DD.MM.YYYY HH:mm:ss')
 
 
         let issue = await IssueModel.findOne({ _id: id })
@@ -124,11 +124,11 @@ router.post('/issues/:id/technician/reports', async (req, res) => {
             _id: machineId
         })
 
-        let newLastActiveTime = moment().format('YYYY-MM-DD HH:mm:ss')
+        let newLastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss')
         let newTotalTime = machine.totalOfflineTime
 
-        let lastActiveTime = moment(moment(machine.lastActiveTime).format('YYYY-MM-DD HH:mm:ss'))
-        let currentTime = moment(moment().format('YYYY-MM-DD HH:mm:ss'))
+        let lastActiveTime = moment(moment(machine.lastActiveTime).format('DD.MM.YYYY HH:mm:ss'))
+        let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
 
         let diff = moment.duration(currentTime.diff(lastActiveTime))
         newTotalTime = machine.totalOfflineTime + diff.asHours()
@@ -204,7 +204,7 @@ router.post('/issues/:id/report', upload.single('report') ,async (req, res) => {
             pnid: pnid,
         })
 
-        let currentDate = moment().format('YYYY-MM-DD HH:mm:ss')
+        let currentDate = moment().format('DD.MM.YYYY HH:mm:ss')
 
 
         const browser = await puppeteer.launch({
@@ -232,7 +232,7 @@ router.post('/issues/:id/report', upload.single('report') ,async (req, res) => {
         };
 
         const filledTemplate = Handlebars.compile(htmlTemplate)(template_data);
-        let up_date = moment().format('YYYY-MM-DD')
+        let up_date = moment().format('DD.MM.YYYY')
         let filename = `machine_fix_report_${up_date}.pdf`
 
         // Generate PDF from filled template
@@ -275,7 +275,7 @@ router.post('/issues/:id/report', upload.single('report') ,async (req, res) => {
         issue.fixedBy = 'driver'
 
         if(issue.wasInWaitingState){
-            issue.WaitingEndTime = moment(currentDate).format('YYYY-MM-DD HH:mm:ss') 
+            issue.WaitingEndTime = moment(currentDate).format('DD.MM.YYYY HH:mm:ss') 
         }
         await issue.save()
 
@@ -286,11 +286,11 @@ router.post('/issues/:id/report', upload.single('report') ,async (req, res) => {
             _id: machineId
         })
 
-        let newLastActiveTime = moment().format('YYYY-MM-DD HH:mm:ss')
+        let newLastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss')
         let newTotalTime = machine.totalOfflineTime
 
-        let lastActiveTime = moment(moment(machine.lastActiveTime).format('YYYY-MM-DD HH:mm:ss'))
-        let currentTime = moment(moment().format('YYYY-MM-DD HH:mm:ss'))
+        let lastActiveTime = moment(moment(machine.lastActiveTime).format('DD.MM.YYYY HH:mm:ss'))
+        let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
 
         let diff = moment.duration(currentTime.diff(lastActiveTime))
         newTotalTime = machine.totalOfflineTime + diff.asHours()
@@ -360,7 +360,7 @@ router.post('/issues/:id/external/notify', async (req,res) =>{
             _id: req.params.id
         })
 
-        let currentDate = moment(moment.now()).format('yyyy-MM-DD HH:mm:ss')
+        let currentDate = moment().format('DD.MM.YYYY HH:mm:ss')
 
         issue.processes.push(`issue couldn't be fixed and notified managers at ${currentDate}`)
         issue.status = 'redirected'

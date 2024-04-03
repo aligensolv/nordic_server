@@ -200,7 +200,7 @@
 
 
         function deleteReport(reportId) {
-        fetch(`/admin/api/reports/${reportId}`, {
+        fetch(`/api/reports/${reportId}`, {
             method: 'DELETE',
         })
         .then(async (response) => {
