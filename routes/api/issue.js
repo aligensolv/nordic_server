@@ -418,7 +418,7 @@ for(let driver of drivers_phone_numbers){
 
 await SmsRepository.storeSms({
     sender: 'System',
-    delivered_to: drivers,
+    delivered_to: drivers_phone_numbers,
     content: driversFormattedMessage,
     total_received: drivers.length,
     about: 'issue redirected by driver',
