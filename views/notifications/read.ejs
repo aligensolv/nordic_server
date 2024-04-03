@@ -86,7 +86,7 @@
                                 <tbody id="notificationTableBody">
                                     <% notifications.forEach(function(notification) { %>
                                         <tr>
-                                    <td><%= notification.date %></td>
+                                    <td><%= notification.created_at %></td>
                                         <td><%= notification.title %></td>
                                         <td><%= notification.body %></td>
                                         <td><%= notification.imeis.length %></td>
@@ -149,19 +149,18 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'L'
+        format: 'DD.MM.YYYY'
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        let date =  moment(e.date._d).format('DD.MM.YYYY')
         filterTableByDate(date)
     })
 
     $(document).ready(function() {
-      const now = new Date();
-      const localDate = new Date(now.getTime() - (now.getTimezoneOffset() * 60000));
-      const localDateString = localDate.toISOString().split('T')[0];
-      filterTableByDate(localDateString)
+      const now = moment().format('DD.MM.YYYY')
+
+      filterTableByDate(now)
     });
   </script>
 </body>

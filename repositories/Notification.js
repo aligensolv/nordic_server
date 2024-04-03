@@ -7,7 +7,7 @@ class NotificaitonRepository{
     static storeNotification({ title, body, zones, imeis }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
 
                 await NotificationModel.create({
                     title, body, zones, imeis, created_at
