@@ -88,10 +88,10 @@
                                     <% } else { %>
                                         <% issuenotifications.forEach(notification => { %>
                                             <tr>
-                                                <td><%= notification.date %></td>
+                                                <td><%= notification.created_at %></td>
                                                 <td><%= notification.title %></td>
                                                 <td><%= notification.body %></td>
-                                                <td><%= notification.type %></td>
+                                                <td><%= notification.notification_type %></td>
                                             </tr>
                                         <% }); %>
                                     <% } %>
