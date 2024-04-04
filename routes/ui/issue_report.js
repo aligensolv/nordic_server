@@ -43,8 +43,11 @@ router.get('/reports/dashboard', async (req, res) => {
 
 
   const total_complaints = await ComplaintRepository.getTotalComplaints()
+  const total_waiting_complaints = await ComplaintRepository.getTotalComplaints('pending')
+
   const total_complaints_complete_time = await ComplaintRepository.getTotalComplaintsCompleteTime()
   const average_complaints_complete_time = await ComplaintRepository.getAverageComplaintsCompleteTime()
+  const average_complaints_waiting_time = await ComplaintRepository.getAverageComplaintsWaitingTime()
   const total_completed_complaints = await ComplaintRepository.getTotalCompletedComplaints()
 
   const complaints_graph_data = await ComplaintRepository.getGroupedComplaintsGraphData()
@@ -79,10 +82,11 @@ router.get('/reports/dashboard', async (req, res) => {
   const total_issues_redirect_average = await IssueRepository.getTotalRedirectAverageTime()
   const total_issues_waiting_average = await IssueRepository.getTotalIssueWaitingAverageTime()
 
-  console.log(completed_issues_grouped_by_identifiers);
+  console.log(complaints_graph_data);
 
   return res.render('reports/dashboard',{
-    total_complaints, total_complaints_complete_time, total_completed_complaints, average_complaints_complete_time,
+    total_complaints, total_complaints_complete_time, total_completed_complaints, 
+    average_complaints_complete_time, average_complaints_waiting_time, total_waiting_complaints,
     complaints_graph_data: JSON.stringify(complaints_graph_data),
     sms_count,
     inactive_machines_count,active_machines_count,waiting_machines_count,

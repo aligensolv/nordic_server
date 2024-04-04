@@ -241,9 +241,17 @@ class ComplaintRepository{
         )
     }
 
-    static async getTotalComplaints(){
+    static async getTotalComplaints(status){
         return new Promise(
             promiseAsyncWrapepr(async (resolve, reject) => {
+                if(status){
+                    const count = await Complaint.countDocuments({
+                        status
+                    })
+
+                    return resolve(count)
+                }
+
                 const count = await Complaint.countDocuments()
                 return resolve(count)
             })
@@ -299,6 +307,26 @@ class ComplaintRepository{
         )
     }
 
+    static async getAverageComplaintsWaitingTime(){
+        return new Promise(
+            promiseAsyncWrapepr(async (resolve, reject) => {
+                const result = await Complaint.aggregate([
+                    {
+                        $group: {
+                            _id: null,
+                            average_waiting_time: {
+                                $avg: '$total_waiting_time'
+                            }
+                        }
+                    }
+                ])
+                const average = Math.floor(result[0].average_waiting_time / 60)
+
+                return resolve(average)
+            })
+        )
+    }
+
 
     static async getGroupedComplaintsGraphData(){
         return new Promise(
@@ -307,7 +335,8 @@ class ComplaintRepository{
                     {
                         $group: {
                             _id: { $substr: [ "$created_at", 0, 10 ] },
-                            count: { $sum: 1 }
+                            count: { $sum: 1 },
+                            complaints: { $push: "$$ROOT" }
                         }
                     }
                 ])
@@ -315,13 +344,16 @@ class ComplaintRepository{
                 const formattedResult = result.map(e => {
                     return {
                         x: e._id,
-                        y: e.count
+                        y: e.count,
+                        complaints: e.complaints
                     }
                 })
                 return resolve(formattedResult)
             })
         )
     }
+
+    
 
 }
 

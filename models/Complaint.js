@@ -85,12 +85,12 @@ const complaintSchema = new mongoose.Schema({
 
     total_waiting_time: {
         type: Number,
-        default: null
+        default: 0
     },
 
     total_complete_time:{
         type: Number,
-        default: null
+        default: 0
     },
 
     accepted_by: {

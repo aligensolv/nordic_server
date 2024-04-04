@@ -32,9 +32,7 @@ export const createComplaint = asyncWrapper(
     async (req, res) => {
         const { type, other_type_description, phone_number, plate_number, location, is_following } = req.body
 
-        const image_link = req.file != null ? static_absolute_files_host + 'images/complaints/client/' + req.file.filename : null
-        console.log(req.file);
-        
+        const image_link = req.file != null ? static_absolute_files_host + 'images/complaints/client/' + req.file.filename : null        
 
         const complaint = await ComplaintRepository.createComplaint({ 
             type, 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opprett Qrcode</title>
+    <title>Opprett Category</title>
     <!-- Add Bootstrap CSS link -->
     <%- include('../../components/headers.ejs') %>
       <!-- SweetAlert2 -->
@@ -25,7 +25,7 @@
                     <ol class="breadcrumb float-sm-left">
                     <li class="breadcrumb-item"><a href="/">Hjem</a></li>
                     <li class="breadcrumb-item"><a href="/complaints">Complaints</a></li>
-                    <li class="breadcrumb-item">Qrcodes</li>
+                    <li class="breadcrumb-item">Categories</li>
                     <li class="breadcrumb-item active">Legge til</li>
                     </ol>
                 </div><!-- /.col -->
@@ -40,7 +40,7 @@
                         <div class="card">
                             <div class="card-header">
                               <h3 class="card-title d-flex justify-content-between align-items-center">
-                                Opprett Qrcode
+                                Opprett Category
                               </h3>
                             </div>
                             <!-- /.card-header -->
@@ -49,32 +49,16 @@
                                 <div>
                                   <div class="input-group form-group mb-3">
                                     <div class="input-group-prepend">
-                                      <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+                                      <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
                                       </div>
-                                      <input class="form-control" placeholder="Location Name" name="location"
-                                        id="location">
-                                    </div>
-
-                                    <div class="input-group form-group mb-3">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
-                                      </div>
-                                      <input class="form-control" placeholder="Location Owner Name" name="location_owner_name"
-                                        id="location_owner_name">
-                                    </div>
-
-                                    <div class="input-group form-group mb-3">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                      </div>
-                                      <input class="form-control" placeholder="Phone Number" name="phone_number"
-                                        id="phone_number">
+                                      <input class="form-control" placeholder="Category Name" name="category_name"
+                                        id="category_name">
                                     </div>
 
 
 
                                     <div class="d-flex justify-content-center align-items-center mt-3 btn-group">
-                                      <button type="button" class="btn btn-info" onclick="createComplaintQrcode()">Legge til</button>
+                                      <button type="button" class="btn btn-info" onclick="createComplaintCategory()">Legge til</button>
                                     <a href="/imeis" class="btn btn-secondary ps-3 pe-3">Avbryt</a>
                                     </div>
                                   </div>
@@ -99,31 +83,27 @@
     <script src="/plugins/toastr/toastr.min.js"></script>
 
     <script>
-      async function createComplaintQrcode() {
-        const location = document.getElementById('location').value;
-        const location_owner_name = document.getElementById('location_owner_name').value;
-        const phone_number = document.getElementById('phone_number').value;
+      async function createComplaintCategory() {
+        const name = document.getElementById('category_name').value;
         try {
-          const response = await fetch('/api/complaints/qrcodes/create', {
+          const response = await fetch('/api/complaints/categories', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json; charset=UTF-8'
             },
             body: JSON.stringify({
-              location,
-              location_owner_name,
-              phone_number
+              name
             })
           });
           const data = await response.json();
           if (response.status == 200) {
             Swal.fire({
-              title: 'Qrcode lagt til',
-              text: 'Qrcode ble lagt til',
+              title: 'Category lagt til',
+              text: 'Category ble lagt til',
               icon: 'success',
               confirmButtonText: 'OK'
             }).then(() => {
-              window.location.href = '/complaints/qrcodes';
+              window.location.href = '/complaints/categories';
             });
           } else {
             Swal.fire({

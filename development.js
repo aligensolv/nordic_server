@@ -25,9 +25,6 @@ import QrcodeRepository from "./repositories/Qrcode.js";
 
 import './utils/database_connection.js'
 
-let issues = await QrcodeRepository.generateComplaintQrcode({
-    location: 'Oslo',
-    phone_number: '+1234567890'
-})
+let result = await ComplaintRepository.getGroupedComplaintsGraphData()
 
-console.log(issues);
+console.log(result[0].complaints);

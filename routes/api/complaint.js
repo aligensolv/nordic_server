@@ -18,6 +18,7 @@ import multer, { diskStorage } from 'multer';
 import Randomstring from "randomstring"
 import path from "path";
 import { createComplaintQrcode, deleteAllComplaintQrcodes, deleteComplaintQrcodeById } from "../../controllers/complaint_qrcode_controller.js";
+import { createComplaintCategory, deleteAllComplaintCategories, deleteComplaintCategoryById, getAllComplaintCategories } from "../../controllers/complaint_category_controller.js";
 
 const violations_storage = diskStorage({
     destination: function (req, file, cb) {
@@ -42,9 +43,16 @@ const violations_upload = multer({ storage: violations_storage });
 
 const router = Router()
 
+router.post('/complaints/categories', createComplaintCategory)
+router.get('/complaints/categories', getAllComplaintCategories)
+router.delete('/complaints/categories', deleteAllComplaintCategories)
+router.delete('/complaints/categories/:id', deleteComplaintCategoryById)
+
 router.get('/complaints', getAllComplaints)
 router.get('/complaints/:id', getComplaintById)
 router.get('/complaints/client/:id', getAllClientComplaints)
+
+
 
 router.post('/complaints/qrcodes/create', createComplaintQrcode)
 router.delete('/complaints/qrcodes/:id', deleteComplaintQrcodeById)
@@ -63,6 +71,8 @@ router.post('/complaints/:id/complete', violations_upload.single('violation') ,c
 
 router.get('/complaints/users/:id/accepted', getAllDriverAcceptedComplaints)
 router.get('/complaints/users/:id/completed', getAllDriverCompletedComplaints)
+
+
 
 
 export default router

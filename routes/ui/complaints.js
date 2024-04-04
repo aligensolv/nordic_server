@@ -3,6 +3,7 @@ import uiAsyncWrapper from '../../middlewares/front_async_wrapper.js'
 import { OK } from '../../constants/status_codes.js'
 import ComplaintRepository from '../../repositories/Complaint.js'
 import ComplaintQrcodeRepository from '../../repositories/ComplaintQrcode.js'
+import ComplaintCategoryRepository from '../../repositories/ComplaintCategory.js'
 
 const router = Router()
 
@@ -24,11 +25,11 @@ router.get('/complaints/qrcodes', uiAsyncWrapper(
     }
 ))
 
-router.get('/complaints/:id', uiAsyncWrapper(
-    async (req,res) =>{
-        return res.status(OK).render('complaints/view_complaint')
-    }
-))
+// router.get('/complaints/:id', uiAsyncWrapper(
+//     async (req,res) =>{
+//         return res.status(OK).render('complaints/view_complaint')
+//     }
+// ))
 
 
 
@@ -45,6 +46,21 @@ router.get('/complaints/qrcodes/:id', uiAsyncWrapper(
         return res.status(OK).render('complaints/qrcodes/view', {
             complaint_qrcode
         })
+    }
+))
+
+router.get('/complaints/categories', uiAsyncWrapper(
+    async (req,res) =>{
+        const complaint_categories = await ComplaintCategoryRepository.getAllComplaintCategories()
+        return res.status(OK).render('complaints/categories/index', {
+            complaint_categories
+        })
+    }
+))
+
+router.get('/complaints/categories/create', uiAsyncWrapper(
+    async (req,res) =>{
+        return res.status(OK).render('complaints/categories/create')
     }
 ))
 

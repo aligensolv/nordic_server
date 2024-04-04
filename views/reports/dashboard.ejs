@@ -74,6 +74,7 @@
         </div>
 
            <div class="content-wrapper">
+            
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 mb-3">
@@ -293,95 +294,14 @@
 
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="top-block-one d-flex align-items-center justify-content-between">
-                                    <div class="icon iq-icon-box-2 mr-2 rtl-ml-2 rtl-mr-0 rounded">
-                                        <img src="/images/issues.png" alt="" srcset="" width="100%" height="100%">
-                                    </div>
-                                    <span class="text-primary"> <i class="ri-arrow-up-fill mr-1 fa-2x"></i></span>
-
-                                </div>
-                                <div class="mt-4 ">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h3 id="total-complaints-holder">-</h3>
-                                        <a href="/issues" class="btn btn-sm btn-info">
-                                            Se
-                                        </a>
-                                    </div>
-                                    <span class="mb-0">Total Complaints</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="top-block-one d-flex align-items-center justify-content-between">
-                                    <div class="icon iq-icon-box-2 mr-2 rtl-ml-2 rtl-mr-0 rounded">
-                                        <img src="/images/issues.png" alt="" srcset="" width="100%" height="100%">
-                                    </div>
-                                    <span class="text-primary"> <i class="ri-arrow-up-fill mr-1 fa-2x"></i></span>
-
-                                </div>
-                                <div class="mt-4 ">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h3 id="total-completed-complaints-holder">-</h3>
-                                        <a href="/issues" class="btn btn-sm btn-info">
-                                            Se
-                                        </a>
-                                    </div>
-                                    <span class="mb-0">Completed Complaints</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body">
-                                <div class="top-block-one d-flex align-items-center justify-content-between">
-                                    <div class="icon iq-icon-box-2 mr-2 rtl-ml-2 rtl-mr-0 rounded">
-                                        <img src="/images/issues.png" alt="" srcset="" width="100%" height="100%">
-                                    </div>
-                                    <span class="text-primary"> <i class="ri-arrow-up-fill mr-1 fa-2x"></i></span>
-
-                                </div>
-                                <div class="mt-4 ">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h3 id="total-complaints-time-holder">-</h3>
-                                        <a href="/issues" class="btn btn-sm btn-info">
-                                            Se
-                                        </a>
-                                    </div>
-                                    <span class="mb-0">Total Complaints Time</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-body">
-                            <div class="top-block-one d-flex align-items-center justify-content-between">
-                                <div class="icon iq-icon-box-2 mr-2 rtl-ml-2 rtl-mr-0 rounded">
-                                    <img src="/images/issues.png" alt="" srcset="" width="100%" height="100%">
-                                </div>
-                                <span class="text-primary"> <i class="ri-arrow-up-fill mr-1 fa-2x"></i></span>
-
-                            </div>
-                            <div class="mt-4 ">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h3 id="avg-complaints-time-holder">-</h3>
-                                    <a href="/issues" class="btn btn-sm btn-info">
-                                        Se
-                                    </a>
-                                </div>
-                                <span class="mb-0">Average Complaints Time</span>
-                            </div>
-                        </div>
+                    <div class="col-lg-9">
+                        <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
                     </div>
-            </div>
+
+                    <div class="col-lg-3">
+                        <div id="statistics"></div>
+
+                    </div>
                 </div>
             </div>
 
@@ -734,6 +654,8 @@
         </div>
     </div>
 
+
+
         </div>
     </div>
     <!-- Wrapper End-->
@@ -803,7 +725,87 @@
         <script src="/geo/ZipFile.complete.js"></script>
 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script>
+    
+            const xv = <%- complaints_graph_data %>;
+            let data = xv.map(item => {
+                const parts = item.x.split('.');
+                const date = new Date(parts[2], parts[1] - 1, parts[0]); // Assuming the format is DD.MM.YYYY
 
+                let sum = 0;
+                item.complaints.forEach(comp => {
+                    if (comp.total_complete_time != null) {
+                        sum += comp.total_complete_time;
+                    }
+                });
+
+
+
+                return { x: date, y: item.y, average: +(((sum / 60) / item.complaints.length).toFixed(2)) };
+            });
+            // Create chart instance
+            var chart = am4core.create("chartdivxx", am4charts.XYChart);
+            chart.data = data;
+    
+            // Create axes
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    
+            // Create series
+            var series1 = chart.series.push(new am4charts.LineSeries());
+            series1.dataFields.valueY = "y";
+            series1.dataFields.dateX = "x";
+            series1.name = "Total Complaints";
+            series1.tooltipText = "{name}: [bold]{valueY}[/]";
+            series1.strokeWidth = 3;
+            series1.smoothing = "monotoneX"
+    
+            var series2 = chart.series.push(new am4charts.LineSeries());
+            series2.dataFields.valueY = "average";
+            series2.dataFields.dateX = "x";
+            series2.name = "Average Solving";
+            series2.tooltipText = "{name}: [bold]{valueY}[/]";
+            series2.strokeWidth = 3;
+            series2.smoothing = "monotoneX"
+    
+            // Add cursor
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.xAxis = dateAxis;
+    
+            // Add legend
+            chart.legend = new am4charts.Legend();
+    
+            // Calculate statistics
+            var statistics = document.getElementById('statistics');
+            var values1 = [1];
+            var values2 = [2];
+            var avg1 = 3.5
+            var avg2 = 4.7;
+            var max1 = 200;
+            var max2 = 150;
+            var min1 = 100;
+            var min2 = 50;
+            
+            let average_complaints_waiting_time = <%- average_complaints_waiting_time %>;
+            let average_complaints_complete_time = <%- average_complaints_complete_time %>;
+            let total_complaints_complete_time = <%- total_complaints_complete_time %>;
+            let total_completed_complaints = <%- total_completed_complaints %>;
+            let total_complaints = <%- total_complaints %>;
+
+            let total_waiting_complaints = <%- total_waiting_complaints %>;
+
+            // Display statistics
+            statistics.innerHTML = `
+                <h2>Statistics</h2>
+                <p><b>Average Response Time:</b> ${average_complaints_waiting_time} M/C</p>
+                <p><b>Average Complete Time:</b> ${average_complaints_complete_time} M/C</p>
+                <p><b>Total Complete Time:</b> ${total_complaints_complete_time} Minutes</p>
+                <p><b>Total Complaints:</b> ${total_complaints}</p>
+
+                <p><b>Total Completed Complaints:</b> ${total_completed_complaints}</p>
+                <p><b>Total Waiting Complaints:</b> ${total_waiting_complaints}</p>
+            `;
+        </script>
         <script>
             let leaderboardContainer = document.getElementById('leaderboard-container')
         leaderboardContainer.innerHTML = ''
@@ -830,59 +832,6 @@
         }
         </script>
 
-    <script>
-        let total_complaints = document.getElementById("total-complaints-holder")
-        let total_completed_complaints = document.getElementById("total-completed-complaints-holder")
-        let total_complaints_time = document.getElementById("total-complaints-time-holder")
-        let average_complaints_time = document.getElementById("avg-complaints-time-holder")
-
-        var tc = <%- total_complaints %>;
-        var tcc = <%- total_completed_complaints %>;
-        var tct = <%- total_complaints_complete_time %>;
-        var act = <%- average_complaints_complete_time %>;
-
-
-        total_complaints.innerHTML = tc
-        total_completed_complaints.innerHTML = tcc
-        total_complaints_time.innerHTML = tct + ' M'
-        average_complaints_time.innerHTML = act + ' M'
-        var complaints_graph_data = <%- complaints_graph_data %>;
-        
-        var options = {
-  chart: {
-    type: 'line',
-    height: 350,
-    width: '100%',
-    toolbar: {
-      show: false
-    }
-  },
-  series: [{
-    name: 'Complaints',
-    data: complaints_graph_data
-  }],
-  xaxis: {
-    type: 'date',
-    labels: {
-      format: 'dd.MM.yyyy'
-    },
-    title:{
-        text: 'Date'
-    }
-  },
-  yaxis: {
-    title: {
-      text: 'Count'
-    }
-  }
-}
-
-var chart = new ApexCharts(document.querySelector("#complaints_chart"), options);
-
-chart.render();
-
-
-    </script>
 
     <script>
         "use strict";
@@ -1421,7 +1370,7 @@ am4core.useTheme(am4themes_animated);
 // Create chart instance
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 
-
+//TODO RERTEQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
 let issuesGroupedIntoDays = <%- issues_grouped_by_day %>;
 
 chart.data = issuesGroupedIntoDays.map(igit => {
