@@ -37,6 +37,11 @@
             width: 100%;
             height: 450px;
         }
+
+        #column_chart {
+  width: 100%;
+  height: 500px;
+}
         
         #chartdiv {
   width: 100%;
@@ -292,24 +297,19 @@
                 </div>
             </div>
 
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div id="statistics"></div>
-
-                    </div>
-                </div>
+            <div class="div col-lg-12">
+                
             </div>
 
             <div class="col-lg-12">
-                <div class="row">
-                    <div id="complaints_chart" class="col-lg-12"></div>
+                <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
+            </div>
 
-                </div>
+            <div class="col-lg-12">
+                <h3>Complaints waiting Time per users</h3>
+            </div>
+            <div class="col-lg-12">
+                <div id="complaints_waiting_leader" class="col-lg-12"></div>
             </div>
 
             <div class="col-lg-8 col-md-6">
@@ -333,8 +333,7 @@
                         <h4 class="card-title">Rask betjent inngående klage</h4>
                     </div>
                 </div>
-                    <div class="card-body" id="progress-container">
-                    </div>
+                <div id="column_chart"></div>
                 </div>
             </div>
 
@@ -726,6 +725,112 @@
 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script>
+            let xcv = <%- completed_issues_grouped_by_identifiers %>;
+            xcv = xcv.map(e => {
+                return {
+                    average: +(e.value / e.count).toFixed(2),
+                    category: e.identifier
+                }
+            })
+
+            xcv.sort((a,b) => a.average - b.average);
+            am4core.ready(function() {
+            
+            // Themes begin
+            am4core.useTheme(am4themes_animated);
+            // Themes end
+            
+            var chart = am4core.create("column_chart", am4charts.XYChart);
+            chart.data = xcv
+            chart.padding(40, 40, 40, 40);
+            
+            var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.dataFields.category = "category";
+            categoryAxis.renderer.minGridDistance = 1;
+            categoryAxis.renderer.inversed = true;
+            categoryAxis.renderer.grid.template.disabled = true;
+            
+            var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+            valueAxis.min = 0;
+            
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.dataFields.categoryY = "category";
+            series.dataFields.valueX = "average";
+            // series.tooltipText = "{valueX.value}"
+            series.columns.template.strokeOpacity = 0;
+            series.columns.template.column.cornerRadiusBottomRight = 5;
+            series.columns.template.column.cornerRadiusTopRight = 5;
+            
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+            labelBullet.label.horizontalCenter = "left";
+            labelBullet.label.dx = 10;
+            labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+            labelBullet.locationX = 1;
+            
+            // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+            series.columns.template.adapter.add("fill", function(fill, target){
+              return chart.colors.getIndex(target.dataItem.index);
+            });
+            
+            categoryAxis.sortBySeries = series;
+
+            
+            
+            
+            }); // end am4core.ready()
+            </script>
+        <script>
+            let mdr = <%- users_complaint_waiting_graph_data %>;
+
+            mdr.sort((a,b) => a.totalWaitingTime - b.totalWaitingTime);
+            am4core.ready(function() {
+            
+            // Themes begin
+            am4core.useTheme(am4themes_animated);
+            // Themes end
+            
+            var chart = am4core.create("complaints_waiting_leader", am4charts.XYChart);
+            chart.data = mdr
+            chart.padding(40, 40, 40, 40);
+            
+            var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.dataFields.category = "user";
+            categoryAxis.renderer.minGridDistance = 1;
+            categoryAxis.renderer.inversed = true;
+            categoryAxis.renderer.grid.template.disabled = true;
+            
+            var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
+            valueAxis.min = 0;
+            
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.dataFields.categoryY = "user";
+            series.dataFields.valueX = "totalWaitingTime";
+            // series.tooltipText = "{valueX.value}"
+            series.columns.template.strokeOpacity = 0;
+            series.columns.template.column.cornerRadiusBottomRight = 5;
+            series.columns.template.column.cornerRadiusTopRight = 5;
+            
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet())
+            labelBullet.label.horizontalCenter = "left";
+            labelBullet.label.dx = 10;
+            labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+            labelBullet.locationX = 1;
+            
+            // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+            series.columns.template.adapter.add("fill", function(fill, target){
+              return chart.colors.getIndex(target.dataItem.index);
+            });
+            
+            categoryAxis.sortBySeries = series;
+
+            
+            
+            
+            }); // end am4core.ready()
+            </script>
+        <script>
     
             const xv = <%- complaints_graph_data %>;
             let data = xv.map(item => {
@@ -742,7 +847,8 @@
 
 
                 return { x: date, y: item.y, average: +(((sum / 60) / item.complaints.length).toFixed(2)) };
-            });
+            })
+        
             // Create chart instance
             var chart = am4core.create("chartdivxx", am4charts.XYChart);
             chart.data = data;
@@ -774,17 +880,6 @@
     
             // Add legend
             chart.legend = new am4charts.Legend();
-    
-            // Calculate statistics
-            var statistics = document.getElementById('statistics');
-            var values1 = [1];
-            var values2 = [2];
-            var avg1 = 3.5
-            var avg2 = 4.7;
-            var max1 = 200;
-            var max2 = 150;
-            var min1 = 100;
-            var min2 = 50;
             
             let average_complaints_waiting_time = <%- average_complaints_waiting_time %>;
             let average_complaints_complete_time = <%- average_complaints_complete_time %>;
@@ -794,17 +889,54 @@
 
             let total_waiting_complaints = <%- total_waiting_complaints %>;
 
-            // Display statistics
-            statistics.innerHTML = `
-                <h2>Statistics</h2>
-                <p><b>Average Response Time:</b> ${average_complaints_waiting_time} M/C</p>
-                <p><b>Average Complete Time:</b> ${average_complaints_complete_time} M/C</p>
-                <p><b>Total Complete Time:</b> ${total_complaints_complete_time} Minutes</p>
-                <p><b>Total Complaints:</b> ${total_complaints}</p>
+            let label_ar = chart.createChild(am4core.Label);
 
-                <p><b>Total Completed Complaints:</b> ${total_completed_complaints}</p>
-                <p><b>Total Waiting Complaints:</b> ${total_waiting_complaints}</p>
-            `;
+            label_ar.text = `Average Response ${average_complaints_waiting_time} M/C`;
+            label_ar.fontSize = 14;
+            label_ar.align = "center";
+            label_ar.isMeasured = false;
+            label_ar.x = 60;
+            label_ar.y = 16;
+
+            let label_ac = chart.createChild(am4core.Label);
+            label_ac.text = `Average Complete ${average_complaints_complete_time} M/C`;
+            label_ac.fontSize = 14;
+            label_ac.align = "center";
+            label_ac.isMeasured = false;
+            label_ac.x = 60;
+            label_ac.y = 36;
+
+            let label_tc = chart.createChild(am4core.Label);
+            label_tc.text = `Total Complete Time ${total_complaints_complete_time} M/C`;
+            label_tc.fontSize = 14;
+            label_tc.align = "center";
+            label_tc.isMeasured = false;
+            label_tc.x = 60;
+            label_tc.y = 56;
+
+            let label_tcc = chart.createChild(am4core.Label);
+            label_tcc.text = `Total Complaints ${total_complaints} M/C`;
+            label_tcc.fontSize = 14;
+            label_tcc.align = "center";
+            label_tcc.isMeasured = false;
+            label_tcc.x = 60;
+            label_tcc.y = 76;
+
+            let label_tccc = chart.createChild(am4core.Label);
+            label_tccc.text = `Total Completed ${total_completed_complaints} M/C`;
+            label_tccc.fontSize = 14;
+            label_tccc.align = "center";
+            label_tccc.isMeasured = false;
+            label_tccc.x = 60;
+            label_tccc.y = 96;
+
+            let label_twc = chart.createChild(am4core.Label);
+            label_twc.text = `Total Waiting ${total_completed_complaints} M/C`;
+            label_twc.fontSize = 14;
+            label_twc.align = "center";
+            label_twc.isMeasured = false;
+            label_twc.x = 60;
+            label_twc.y = 116;
         </script>
         <script>
             let leaderboardContainer = document.getElementById('leaderboard-container')
@@ -1098,47 +1230,7 @@ let liveTimes = document.querySelectorAll('.live-time')
     var chart = new ApexCharts(document.querySelector("#dual-repeated-chart"), options);
         chart.render();
 
-let holderSortableArray = <%- completed_issues_grouped_by_identifiers %>;
-let progressContainer = document.getElementById('progress-container');
-for(let value of holderSortableArray){
-    /*
-        <div class="iq-details mt-4">
-                        <h5 class="title">Favorite</h5>
-                        <div class="iq-progress-bar bg-orange-light mt-2">
-                            <span class="bg-orange iq-progress progress-1" data-percent="92" >
-                            <span class="progress-text-one bg-orange">92%</span>
-                            </span>
-                        </div>
-                    </div>
-    
-    */
 
-    let container = document.createElement('div')
-    container.className = 'iq-details'
-
-    let title = document.createElement('h5')
-    title.className = 'title mb-4'
-    title.textContent = value.identifier
-
-    let progressIqContainer = document.createElement('div')
-    progressIqContainer.className = 'iq-progress-bar bg-orange-light mt-2'
-
-    let dataPercent = document.createElement('span')
-    dataPercent.className = 'bg-orange iq-progress progress-1'
-    dataPercent.setAttribute('data-percent', value.value > 100 ? '100' : value.value.toString())
-    
-    let dataPercentText = document.createElement('span')
-    dataPercentText.className = 'progress-text-one bg-orange'
-    dataPercentText.textContent = value.value + '%'
-
-    container.appendChild(title)
-    dataPercent.appendChild(dataPercentText)
-
-    progressIqContainer.appendChild(dataPercent)
-
-    container.appendChild(progressIqContainer)
-    progressContainer.appendChild(container)
-}
 
 if (jQuery("#layout-3-chart-04").length) {
     let sections = <%- issues_grouped_by_importance %>;

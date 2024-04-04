@@ -25,6 +25,6 @@ import QrcodeRepository from "./repositories/Qrcode.js";
 
 import './utils/database_connection.js'
 
-let result = await ComplaintRepository.getGroupedComplaintsGraphData()
+let result = await ComplaintRepository.getUsersComplaintWaitingTime()
 
-console.log(result[0].complaints);
+console.log(result)

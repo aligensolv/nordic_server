@@ -353,6 +353,32 @@ class ComplaintRepository{
         )
     }
 
+    static async getUsersComplaintWaitingTime() {
+        return new Promise(
+            promiseAsyncWrapepr(async (resolve, reject) => {
+                const result = await Complaint.aggregate([
+                    {
+                        $match: {
+                            "completed_by.name": { $ne: null } // Exclude documents where completed_by.name is null
+                        }
+                    },
+                    {
+                        $group: {
+                            _id: "$completed_by.name",
+                            totalWaitingTime: { $sum: "$total_waiting_time" }
+                        }
+                    }
+                ]);
+                const total_time_in_hours = result.map(e => {
+                    return {
+                        user: e._id,
+                        totalWaitingTime: +((e.totalWaitingTime / 60).toFixed(2))
+                    }
+                })
+                return resolve(total_time_in_hours);
+            })
+        );
+    }
     
 
 }
