@@ -396,7 +396,7 @@ class IssueRepository{
     }
 
     static mapGroupedCompletedIssuesByIdentifierToValues(grouped_items){
-        return grouped_items.map(r => {
+        let mapped = grouped_items.map(r => {
             return {
                 identifier: r._id,
                 count: r.count,
@@ -408,6 +408,8 @@ class IssueRepository{
                 }, 0)
             }
         })
+
+        return mapped.filter(r => r.value != 0)
     }
 
 
