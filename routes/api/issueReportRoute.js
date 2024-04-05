@@ -4,6 +4,9 @@ import Machine from '../../models/Machine.js';
 import Issue from '../../models/Issue.js';
 import SMS from '../../models/SMS.js';
 import moment from 'moment';
+import asyncWrapper from '../../middlewares/async_wrapper.js';
+import ComplaintRepository from '../../repositories/Complaint.js';
+import IssueRepository from '../../repositories/Issue.js';
 
 
 router.get('/reports/general/:id', async (req, res) => {
@@ -231,43 +234,66 @@ try{
 }
 });
 
-// router.get('/reports/repeated', async (req, res) => {
-// try{
-//   let now = moment(moment().format('YYYY-MM-DD'))
-//   let monthAgo = moment(moment().subtract(1,'months').format('YYYY-MM-DD'))
 
-//   let issues = await Issue.find()
-//   issues = issues.filter(issue => {
-//     let issueDate = moment(moment(issue.date).format('YYYY-MM-DD'))
-//     return issueDate.isBetween(monthAgo,now)
-//   })
+router.get('/reports/complaints/totalWaitingTime', asyncWrapper(
+  async (req,res) => {
+    const { startdate, enddate } = req.headers
 
-//   let issueGroupedIntoSerials = issues.reduce((result, item) => {
-//     const key = item.serial;
-//     if (key !== undefined && key !== null) {
-//       if (!result[key]) {
-//         result[key] = [];
-//       }
-//       result[key].push(item);
-//     }
-//     return result;
-//   }, {});
+    const totalWaitingTime = await ComplaintRepository.getUsersComplaintWaitingTime(
+      startdate,
+      enddate
+    )
 
-//   let groupsIntoNumbers = []
-//   for(let key in issueGroupedIntoSerials){
-//     if(issueGroupedIntoSerials.hasOwnProperty(key) && issueGroupedIntoSerials[key].length > 2){
-//       groupsIntoNumbers.push({
-//         serial: key,
-//         total: issueGroupedIntoSerials[key].length
-//       })
-//     }
-//   }
+    console.log(startdate, enddate);
 
-//   return res.status(200).json(groupsIntoNumbers);
-// }catch(e){
-//   return res.status(500).json(e.message)
-// }
-// })
+    return res.status(200).json(totalWaitingTime)
+  }
+))
 
+
+router.get('/reports/issues/group_users/data', asyncWrapper(
+  async (req,res) => {
+    const { startdate, enddate } = req.headers
+
+    const grouped_users = await IssueRepository.getCompletedIssuesGroupedByIdentifier(
+      startdate,
+      enddate
+    )
+
+    return res.status(200).json(grouped_users)
+  }
+))
+
+router.get('/reports/issues/group_months/data', asyncWrapper(
+  async (req,res) => {
+    const { startdate, enddate } = req.headers
+
+    const grouped_months = await IssueRepository.getIssuesDataGroupedByMonth(
+      startdate,
+      enddate
+    )
+
+    console.log(grouped_months);
+
+    return res.status(200).json(grouped_months)
+
+  }
+))
+
+router.get('/reports/issues/group_days/data', asyncWrapper(
+  async (req,res) => {
+    const { startdate, enddate } = req.headers
+
+    const grouped_months = await IssueRepository.getIssuesDataGroupedByDay(
+      startdate,
+      enddate
+    )
+
+    console.log(grouped_months);
+
+    return res.status(200).json(grouped_months)
+
+  }
+))
 
 export default router

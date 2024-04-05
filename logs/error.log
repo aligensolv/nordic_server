@@ -1219,3 +1219,9 @@ complaints_qrcodes is not defined {"timestamp":"2024-04-04 16:36:35"}
 [31merror[39m: Cast to ObjectId failed for value "categories" (type string) at path "_id" for model "Complaint" {"timestamp":"2024-04-04 16:53:40"}
 [31merror[39m: Cast to ObjectId failed for value "categories" (type string) at path "_id" for model "Complaint" {"timestamp":"2024-04-04 16:53:40"}
 [31merror[39m: Cast to ObjectId failed for value "categories" (type string) at path "_id" for model "Complaint" {"timestamp":"2024-04-04 16:53:40"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-04-05 11:36:10"}
+[31merror[39m: Unexpected token u in JSON at position 0 {"timestamp":"2024-04-05 11:36:10"}
+[31merror[39m: Unexpected number {"timestamp":"2024-04-05 13:00:38"}
+[31merror[39m: Unexpected number {"timestamp":"2024-04-05 13:00:38"}
+[31merror[39m: Unexpected token . in JSON at position 5 {"timestamp":"2024-04-05 13:05:39"}
+[31merror[39m: Unexpected token . in JSON at position 5 {"timestamp":"2024-04-05 13:05:39"}

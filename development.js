@@ -25,6 +25,9 @@ import QrcodeRepository from "./repositories/Qrcode.js";
 
 import './utils/database_connection.js'
 
-let result = await ComplaintRepository.getUsersComplaintWaitingTime()
+let result = await ComplaintRepository.getUsersComplaintWaitingTime(
+    '01.04.2024',
+    '31.12.2024'
+)
 
 console.log(result)

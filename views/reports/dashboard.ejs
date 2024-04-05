@@ -91,11 +91,11 @@
             </div>
 
             <div class="col-lg-8 mb-2 d-flex align-items-center">
-                <div class="btn btn-sm btn-primary mr-1" onclick="initalizeGeneralNumbers(6); initializeAverages(6); initializeLeaderboard(6)">Alle</div>
-                <div class="btn btn-sm btn-primary mr-1" onclick="initalizeGeneralNumbers(1); initializeAverages(1); initializeLeaderboard(1)">Dag</div>
-                <div class="btn btn-sm btn-primary mr-1" onclick="initalizeGeneralNumbers(2); initializeAverages(2); initializeLeaderboard(2)">2D</div>
-                <div class="btn btn-sm btn-primary mr-1" onclick="initalizeGeneralNumbers(3); initializeAverages(3); initializeLeaderboard(3)">Uke</div>
-                <div class="btn btn-sm btn-primary mr-1" onclick="initalizeGeneralNumbers(4); initializeAverages(4); initializeLeaderboard(4)">Månd</div>
+                <div class="btn btn-sm btn-primary mr-1" onclick="updateDashboard(6)">Alle</div>
+                <div class="btn btn-sm btn-primary mr-1" onclick="updateDashboard(1)">Dag</div>
+                <div class="btn btn-sm btn-primary mr-1" onclick="updateDashboard(2)">2D</div>
+                <div class="btn btn-sm btn-primary mr-1" onclick="updateDashboard(3)">Uke</div>
+                <div class="btn btn-sm btn-primary mr-1" onclick="updateDashboard(4)">Månd</div>
                 
                 <div class="date" id="reservationdate" data-target-input="nearest">
                     <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
@@ -303,6 +303,11 @@
 
             <div class="col-lg-12">
                 <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
+                <div class="date" id="reservationdate_divxx" data-target-input="nearest">
+                    <div class="input-group-append" data-target="#reservationdate_divxx" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-lg-12">
@@ -567,7 +572,7 @@
                 </div>
             </div>
        
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="card card-block card-stretch card-height ">
                     <div class="card-header border-none">   
                         <div class="header-title d-flex justify-content-between">
@@ -635,21 +640,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card card-block card-height overflow-hidden">
-                    <div class="card-header border-none">
-                        <div class="header-title ">
-                            <h4 class="card-title">
-                                Løsere og tid brukt
-                            </h4>
-                        </div>
-                    </div>
 
-                    <div id="leaderboard-container" class="card-body" style="overflow-y: auto; height: 200px;">
-                        
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -725,10 +716,31 @@
 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script>
-            let xcv = <%- completed_issues_grouped_by_identifiers %>;
+            async function updateGroupedIssuesByIdentifiers(startDate = null, endDate = null) {
+                let hds2 = {
+
+                }
+
+                if(startDate && endDate) {
+                    hds2.startDate = startDate
+                    hds2.endDate = endDate
+                }
+                let rs2 = await fetch('/api/reports/issues/group_users/data', {
+                    headers: hds2
+                });
+                let xcv = await rs2.json()
             xcv = xcv.map(e => {
+                let val = +(e.value / e.count).toFixed(2)
+
+                let parts = val.toString().split('.')
+                let hours = +parts[0]
+                let minutes = Math.floor((+parts[1] || 0) / 100) * 60
+
+                let formatted = minutes == 0 ? `${hours}H ` : `${hours}H ${Math.max(0, minutes)}M`
+                
                 return {
-                    average: +(e.value / e.count).toFixed(2),
+                    average: val,
+                    str: formatted,
                     category: e.identifier
                 }
             })
@@ -764,8 +776,10 @@
             
             var labelBullet = series.bullets.push(new am4charts.LabelBullet())
             labelBullet.label.horizontalCenter = "left";
-            labelBullet.label.dx = 10;
-            labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+            labelBullet.label.dx = 4;
+            labelBullet.label.padding = 4;
+            labelBullet.label.text = "{str}";
+
             labelBullet.locationX = 1;
             
             // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
@@ -778,12 +792,43 @@
             
             
             
-            }); // end am4core.ready()
+            }); // end 
+            }
             </script>
+            
         <script>
-            let mdr = <%- users_complaint_waiting_graph_data %>;
+            async function updateComplaintWaitingTimeChart(startDate = null, endDate = null) {
+                let hds1 = {
+
+                }
+
+                if(startDate != undefined && endDate != undefined){
+                    hds1 = {
+                        'startDate': startDate,
+                        'endDate': endDate,
+                    }
+                }
+                let rs1 = await fetch('/api/reports/complaints/totalWaitingTime',{
+                    headers: hds1
+                })
+            let mdr = await rs1.json()
+                console.log(mdr);
+            console.log(mdr);
 
             mdr.sort((a,b) => a.totalWaitingTime - b.totalWaitingTime);
+
+            let datax = mdr.map(e => {
+                let parts = e.totalWaitingTime.toString().split('.')
+                let hours = +parts[0]
+                let minutes = Math.floor((+parts[1] || 0) / 100) * 60
+
+                let formatted = minutes == 0 ? `${hours} H ` : `${hours}H ${Math.max(0, minutes)} M`
+                return {
+                    user: e.user,
+                    totalWaitingTime: e.totalWaitingTime,
+                    str: formatted
+                }
+            })
             am4core.ready(function() {
             
             // Themes begin
@@ -791,7 +836,7 @@
             // Themes end
             
             var chart = am4core.create("complaints_waiting_leader", am4charts.XYChart);
-            chart.data = mdr
+            chart.data = datax
             chart.padding(40, 40, 40, 40);
             
             var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
@@ -803,7 +848,10 @@
             
             var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
             valueAxis.min = 0;
-            
+            valueAxis.renderer.grid.template.disabled = true; // Disable grid
+            valueAxis.renderer.labels.template.disabled = true; // Disable labels
+
+
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.dataFields.categoryY = "user";
             series.dataFields.valueX = "totalWaitingTime";
@@ -815,7 +863,7 @@
             var labelBullet = series.bullets.push(new am4charts.LabelBullet())
             labelBullet.label.horizontalCenter = "left";
             labelBullet.label.dx = 10;
-            labelBullet.label.text = "{values.valueX.workingValue.formatNumber('#.0as')}";
+            labelBullet.label.text = "{str}";
             labelBullet.locationX = 1;
             
             // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
@@ -828,8 +876,9 @@
             
             
             
-            }); // end am4core.ready()
-            </script>
+            }); // end a
+            }    
+        </script>
         <script>
     
             const xv = <%- complaints_graph_data %>;
@@ -937,31 +986,8 @@
             label_twc.isMeasured = false;
             label_twc.x = 60;
             label_twc.y = 116;
-        </script>
-        <script>
-            let leaderboardContainer = document.getElementById('leaderboard-container')
-        leaderboardContainer.innerHTML = ''
-        
-        let xc = <%- completed_issues_grouped_by_identifiers %>;
 
-        for (let holder of xc) {
-
-            let leaderboardItem = document.createElement('div')
-            leaderboardItem.className = 'd-flex justify-content-between align-items-center'
-
-            let identifierHolder = document.createElement('p')
-            let valueHolder = document.createElement('p')
-
-            identifierHolder.textContent = holder.identifier
-            valueHolder.textContent = (holder.value / holder.count) + ' H'
-            valueHolder.className = 'btn btn-primary btn-sm'
-
-
-            leaderboardItem.appendChild(identifierHolder)
-            leaderboardItem.appendChild(valueHolder)
-
-            leaderboardContainer.appendChild(leaderboardItem)
-        }
+            
         </script>
 
 
@@ -1139,16 +1165,59 @@ let liveTimes = document.querySelectorAll('.live-time')
 
 
 
-
+    async function updateDashboard(id){
+        initalizeGeneralNumbers(id)
+        if(id == 6){
+            await updateComplaintWaitingTimeChart()
+            await updateGroupedIssuesByIdentifiers()
+            await updateDualChart()
+            await updateDailyIssues()
+        }else if(id == 1){
+            let endDate = moment().format('DD.MM.YYYY')
+            let startDate= moment().subtract(1, 'days').format('DD.MM.YYYY')
+            await updateComplaintWaitingTimeChart(startDate, endDate)
+            await updateGroupedIssuesByIdentifiers(startDate, endDate)
+            await updateDualChart(startDate, endDate)
+            await updateDailyIssues(startDate, endDate)
+        }else if(id == 2){
+            let endDate = moment().format('DD.MM.YYYY')
+            let startDate= moment().subtract(3, 'days').format('DD.MM.YYYY')
+            console.log(startDate, endDate);
+            await updateComplaintWaitingTimeChart(startDate, endDate)
+            await updateGroupedIssuesByIdentifiers(startDate, endDate)
+            await updateDualChart(startDate, endDate)
+            await updateDailyIssues(startDate, endDate)
+        }else if(id == 3){
+            let endDate =moment().format('DD.MM.YYYY')
+            let startDate= moment().subtract(7, 'days').format('DD.MM.YYYY')
+            console.log(startDate, endDate);
+            await updateComplaintWaitingTimeChart(startDate, endDate)
+            await updateGroupedIssuesByIdentifiers(startDate, endDate)
+            await updateDualChart(startDate, endDate)
+            await updateDailyIssues(startDate, endDate)
+        }else if(id == 4){
+            let endDate = moment().format('DD.MM.YYYY')
+            let startDate= moment().subtract(1, 'months').format('DD.MM.YYYY')
+            console.log(startDate, endDate);
+            await updateComplaintWaitingTimeChart(startDate, endDate)
+            await updateGroupedIssuesByIdentifiers(startDate, endDate)
+            await updateDualChart(startDate, endDate)
+            await updateDailyIssues(startDate, endDate)
+        }
+    }
 
 
      //Date picker
      $('#reservationdate').daterangepicker({ sideBySide: true, debug: true }).on('apply.daterangepicker', async function (e, picker) {
     var startDate = picker.startDate.format('DD.MM.YYYY');
     var endDate = picker.endDate.format('DD.MM.YYYY');
+    
 
-    initalizeGeneralNumbers()
-})
+        await updateComplaintWaitingTimeChart(startDate, endDate)
+        await updateGroupedIssuesByIdentifiers(startDate, endDate)
+        await updateDualChart(startDate, endDate)
+        await updateDailyIssues(startDate, endDate)
+    })
      //Date picker
      $('#reservationdateF').daterangepicker({ sideBySide: true, debug: true }).on('apply.daterangepicker', async function (e, picker) {
     var startDate = picker.startDate.format('DD.MM.YYYY');
@@ -1164,71 +1233,86 @@ let liveTimes = document.querySelectorAll('.live-time')
 
 })
 
-    document.addEventListener('DOMContentLoaded', async (event) =>{
-        await initalizeGeneralNumbers(6)
-        await initializeAverages(6)
-        await initializeLeaderboard(6)
-    })
-
+async function updateDualChart(startDate = null, endDate = null){
     if (jQuery("#dual-repeated-chart").length) {
+let hds3 = {
 
+}
 
-        let dualData = <%- issues_grouped_by_month %>;
-        var options = {
-          series: [{
-          name: 'Totalt klage',
-          data: Object.values(dualData).map(v => v.count)
-        }, {
-          name: 'Totalt gjentatt',
-          data: Object.values(dualData).map(v => Math.floor(v.count / 5))
-        }],
-          chart: {
-          type: 'bar',
-          height: 310
-        },
-    colors: ['#05bbc9','#876cfe'],
+if(startDate != null || endDate != null){
+  hds3['startDate'] = startDate
+  hds3['endDate'] = endDate
+}
+let rs3 = await fetch(`/api/reports/issues/group_months/data`,{
+  headers: hds3
+})
+let dualData = await rs3.json()
+var options = {
+  series: [{
+  name: 'Totalt klage',
+  data: Object.values(dualData).map(v => v.count)
+}, {
+  name: 'Totalt gjentatt',
+  data: Object.values(dualData).map(v => Math.floor(v.count / 5))
+}],
+  chart: {
+  type: 'bar',
+  height: 310
+},
+colors: ['#05bbc9','#876cfe'],
 
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '10%',
-          },
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
-        },
-        xaxis: {
-          categories: dualData.map(d => d._id),
-        },
-      yaxis: {
-        show: true,
-        labels: {
-          minWidth: 20,
-          maxWidth: 20
+plotOptions: {
+  bar: {
+    horizontal: false,
+    columnWidth: '10%',
+  },
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  show: true,
+  width: 2,
+  colors: ['transparent']
+},
+xaxis: {
+  categories: dualData.map(d => d._id),
+},
+yaxis: {
+show: true,
+labels: {
+  minWidth: 20,
+  maxWidth: 20
+}
+},
+fill: {
+  opacity: 1
+},
+tooltip: {
+    custom: function({ series,seriesIndex, dataPointIndex, w }){
+        if(seriesIndex == 0){
+            return series[seriesIndex][dataPointIndex]
+        }else{
+            return Math.floor(series[seriesIndex - 1][dataPointIndex] / 5)
         }
-      },
-        fill: {
-          opacity: 1
-        },
-        tooltip: {
-            custom: function({ series,seriesIndex, dataPointIndex, w }){
-                if(seriesIndex == 0){
-                    return series[seriesIndex][dataPointIndex]
-                }else{
-                    return Math.floor(series[seriesIndex - 1][dataPointIndex] / 5)
-                }
-            }
-          }
-        }
-        };
+    }
+  }
+}
+};
 
     var chart = new ApexCharts(document.querySelector("#dual-repeated-chart"), options);
-        chart.render();
+    chart.render();
+}
+
+    document.addEventListener('DOMContentLoaded', async (event) =>{
+        await initalizeGeneralNumbers(6)
+        await updateComplaintWaitingTimeChart()
+        await updateGroupedIssuesByIdentifiers()
+        await updateDualChart()
+        await updateDailyIssues()
+    })
+
+    
 
 
 
@@ -1451,9 +1535,10 @@ for (let i = 0; i < machines.length; i++) {
 
 }
 google.maps.event.addDomListener(window, "load", initialize);
+    
 
-
-am4core.ready(function() {
+    async function updateDailyIssues(startDate = null, endDate = null) {
+        am4core.ready(async function() {
 
 // Themes begin
 am4core.useTheme(am4themes_animated);
@@ -1461,9 +1546,19 @@ am4core.useTheme(am4themes_animated);
 
 // Create chart instance
 var chart = am4core.create("chartdiv", am4charts.XYChart);
+let hds4 = {
 
+}
+
+if(startDate != undefined && endDate != undefined){
+    hds4['startDate'] = startDate
+    hds4['endDate'] = endDate
+}
 //TODO RERTEQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
-let issuesGroupedIntoDays = <%- issues_grouped_by_day %>;
+let rs4 = await fetch('/api/reports/issues/group_days/data',{
+    headers: hds4
+})
+let issuesGroupedIntoDays = await rs4.json()
 
 chart.data = issuesGroupedIntoDays.map(igit => {
     console.log(igit);
@@ -1514,7 +1609,8 @@ chart.legend = new am4charts.Legend();
 chart.legend.useDefaultMarker = true; // Show markers in the legend
 
 
-}); // 
+}); 
+    }
 
     </script>
 </body>

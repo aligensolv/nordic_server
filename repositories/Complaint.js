@@ -353,7 +353,7 @@ class ComplaintRepository{
         )
     }
 
-    static async getUsersComplaintWaitingTime() {
+    static async getUsersComplaintWaitingTime(startDate, endDate) {
         return new Promise(
             promiseAsyncWrapepr(async (resolve, reject) => {
                 const result = await Complaint.aggregate([
@@ -365,16 +365,36 @@ class ComplaintRepository{
                     {
                         $group: {
                             _id: "$completed_by.name",
-                            totalWaitingTime: { $sum: "$total_waiting_time" }
+                            totalWaitingTime: { $sum: "$total_waiting_time" },
+                            date: { $first: "$created_at" }
                         }
                     }
                 ]);
-                const total_time_in_hours = result.map(e => {
+                let total_time_in_hours = result.map(e => {
                     return {
                         user: e._id,
-                        totalWaitingTime: +((e.totalWaitingTime / 60).toFixed(2))
+                        totalWaitingTime: +((e.totalWaitingTime / 60).toFixed(2)),
+                        date: moment(e.date, 'DD.MM.YYYY HH:mm:ss').format('DD.MM.YYYY')
                     }
                 })
+
+
+                if(startDate !== undefined && endDate !== undefined) {
+                    total_time_in_hours = total_time_in_hours.filter(r => {
+                        let start = moment(startDate, 'DD.MM.YYYY')
+                        let end = moment(endDate, 'DD.MM.YYYY')
+    
+                        let currentDate = moment(r.date, 'DD.MM.YYYY')
+    
+                        if(currentDate.isSameOrAfter(start) && currentDate.isSameOrBefore(end)) {
+                            return r
+                        }
+                        return 
+                    })
+                }
+
+
+
                 return resolve(total_time_in_hours);
             })
         );

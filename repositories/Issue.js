@@ -250,11 +250,11 @@ class IssueRepository{
     }
 
 
-    static async getIssuesDataGroupedByMonth(){
+    static async getIssuesDataGroupedByMonth(startDate, endDate){
         return new Promise(
             async (resolve, reject) => {
                 try {
-                    const result = await Issue.aggregate([
+                    let result = await Issue.aggregate([
                         { $project: {
                             month: { $dateToString: { format: "%m.%Y", date: { $toDate: "$created_at" } } }
                         }},
@@ -265,6 +265,16 @@ class IssueRepository{
                         }},
                         { $sort: { _id: 1 } }
                     ]);
+
+                    if(startDate !== undefined && endDate !== undefined) {
+                        let start = moment(startDate, 'DD.MM.YYYY')
+                        let end = moment(endDate, 'DD.MM.YYYY')
+                        
+                        result = result.filter(r => {
+                            let date = moment(r._id, 'MM.YYYY')
+                            return date.isSameOrAfter(start) && date.isSameOrBefore(end)
+                        })
+                    }
     
                     resolve(result);
                 } catch (error) {
@@ -274,11 +284,11 @@ class IssueRepository{
         );
     }
 
-    static async getIssuesDataGroupedByDay(){
+    static async getIssuesDataGroupedByDay(startDate, endDate){
         return new Promise(
             async (resolve, reject) => {
                 try {
-                    const result = await Issue.aggregate([
+                    let result = await Issue.aggregate([
                         { $group: {
                             _id: { $dateToString: { format: "%d.%m.%Y", date: { $toDate: "$created_at" } } },
                             count: { $sum: 1 },
@@ -286,6 +296,17 @@ class IssueRepository{
                         }},
                         { $sort: { _id: 1 } }
                     ]);
+
+
+                    if(startDate !== undefined && endDate !== undefined) {
+                        let start = moment(startDate, 'DD.MM.YYYY')
+                        let end = moment(endDate, 'DD.MM.YYYY')
+                        
+                        result = result.filter(r => {
+                            let date = moment(r._id, 'DD.MM.YYYY')
+                            return date.isSameOrAfter(start) && date.isSameOrBefore(end)
+                        })
+                    }
     
                     resolve(result);
                 } catch (error) {
@@ -334,11 +355,11 @@ class IssueRepository{
     }
     
     
-    static async getCompletedIssuesGroupedByIdentifier(){
+    static async getCompletedIssuesGroupedByIdentifier(startDate, endDate){
         return new Promise(
             async (resolve, reject) => {
                 try {
-                    const result = await Issue.aggregate([
+                    let result = await Issue.aggregate([
                         { $match: { status: 'complete' } },
                         { $group: {
                             _id: '$fixedByIdentifier',
@@ -347,6 +368,22 @@ class IssueRepository{
                         }},
                         { $sort: { _id: 1 } }
                     ]);
+
+
+                    if(startDate != undefined && endDate != undefined){
+                        result = result.map(r => {
+                            let start = moment(startDate, 'DD.MM.YYYY')
+                            let end = moment(endDate, 'DD.MM.YYYY')
+                            
+                            r.issues = r.issues.filter(i => {
+                                let current_date = moment(i.fixedAt, 'DD.MM.YYYY HH:mm:ss')
+                                return current_date.isSameOrAfter(start) && current_date.isSameOrBefore(end)
+                            })
+
+                            return r
+                        })          
+                        
+                    }
 
                     const final_result = this.mapGroupedCompletedIssuesByIdentifierToValues(result)
     
@@ -364,8 +401,8 @@ class IssueRepository{
                 identifier: r._id,
                 count: r.count,
                 value: r.issues.reduce((sum, item) => {
-                    let end = moment(item.fixedAt)
-                    let start = moment(item.created_at)
+                    let end = moment(item.fixedAt, 'DD.MM.YYYY HH:mm:ss')
+                    let start = moment(item.created_at, 'DD.MM.YYYY HH:mm:ss')
                     let diff = moment.duration(end.diff(start))
                     return sum + diff.asHours()
                 }, 0)
