@@ -53,10 +53,10 @@ class QrcodeRepository{
         )
     }
 
-    static async generateComplaintQrcode({ location, phone_number }){
+    static async generateComplaintQrcode({ location_id }){
         return new Promise(
             promiseAsyncWrapper(async (resolve, reject) => {
-                const link = `${nordic_complaint_client_host}/complaints/create?location=${location}&phone=${phone_number}`
+                const link = `${nordic_complaint_client_host}/locations/${location_id}/complaints/create`
                 
                 // klage.ryl.no/complaints/${complaint._id}
                 const generated = Qrcode.image(link, { type: 'png' });

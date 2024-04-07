@@ -18,6 +18,14 @@ export const getAllComplaintQrcodes = asyncWrapper(
     }
 )
 
+export const getComplaintQrcodeById = asyncWrapper(
+    async (req, res) => {
+        const { id } = req.params
+        const qrcode = await ComplaintQrcodeRepository.getComplaintQrcodeById(id)
+        return res.status(OK).json(qrcode);
+    }
+)
+
 
 export const deleteComplaintQrcodeById = asyncWrapper(
     async (req, res) => {
