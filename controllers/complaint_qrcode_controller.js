@@ -4,8 +4,8 @@ import ComplaintQrcodeRepository from "../repositories/ComplaintQrcode.js";
 
 export const createComplaintQrcode = asyncWrapper(
     async (req, res) => {
-        const { location, location_owner_name, phone_number } = req.body
-        const result = await ComplaintQrcodeRepository.createComplaintQrcode({ location, location_owner_name, phone_number })
+        const { location, location_owner_name, phone_number, categories } = req.body
+        const result = await ComplaintQrcodeRepository.createComplaintQrcode({ location, location_owner_name, phone_number, categories })
         return res.status(OK).json(result)
     }
 )

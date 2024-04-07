@@ -72,6 +72,7 @@
                                                     <th>Location.</th>
                                                     <th>Owner.</th>
                                                     <th>Phone.</th>
+                                                    <th>Categories</th>
                                                     <th>Qr-Kode.</th>
                                                     <th>Handlinger</th>
                                                 </tr>
@@ -88,6 +89,9 @@
                                                             </td>
                                                             <td>
                                                                 <%= complaints_qrcode.phone_number ?? '-' %>
+                                                            </td>
+                                                            <td>
+                                                                <%= complaints_qrcode.categories.join(', ') ?? '-' %>
                                                             </td>
                                                             <td>
                                                                 <img src="<%= complaints_qrcode.qrcode_image %>" alt="qr-code" width="100" height="100">

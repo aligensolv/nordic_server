@@ -5,14 +5,14 @@ import ComplaintQrcode from "../models/ComplaintQrcode.js"
 import ValidatorRepository from "./Validator.js"
 
 class ComplaintQrcodeRepository{
-    static async createComplaintQrcode({ location, location_owner_name, phone_number }){
+    static async createComplaintQrcode({ location, location_owner_name, phone_number, categories }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
                 const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
                 const qrcode_image = await QrcodeRepository.generateComplaintQrcode({ location, phone_number })
 
                 const complaint_qrcode = await ComplaintQrcode.create({
-                    location, location_owner_name, phone_number, created_at, qrcode_image
+                    location, location_owner_name, phone_number, created_at, qrcode_image, categories
                 })
 
                 return resolve(complaint_qrcode)

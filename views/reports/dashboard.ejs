@@ -302,10 +302,25 @@
             </div>
 
             <div class="col-lg-12">
-                <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
-                <div class="date" id="reservationdate_divxx" data-target-input="nearest">
-                    <div class="input-group-append" data-target="#reservationdate_divxx" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                <div class="row">
+                    <div class="col-lg-1" style="display: flex; flex-direction: column;justify-content: space-between;">
+                        <i class="far fa-clock" style="margin-bottom: 0.5rem; font-size: 1.5rem; display: flex;"></i>
+                        <span style="margin-bottom: 0.5rem;"><%= total_waiting_complaints %> Rek</span>
+                        <i class="far fa-check-circle" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
+                        <span style="margin-top: 0.5rem;"> Rek</span>
+                        <i class="fas fa-stopwatch" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
+                        <span style="margin-top: 0.5rem;"><%= total_waiting_complaints %></span>
+                        <i class="fas fa-check-double" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
+                        <span style="margin-top: 0.5rem;"><%= total_completed_complaints %> Rek</span>
+                        <i class="fas fa-list-ol" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
+                        <span style="margin-top: 0.5rem;">0 M/C</span>
+                    </div>
+
+                    <div class="col-lg-11">
+                        <div id="chartdivxx" style="width: 100%; height: 500px;"></div>
+                    </div>
+
+
                     </div>
                 </div>
             </div>
@@ -715,6 +730,7 @@
         <script src="/geo/ZipFile.complete.js"></script>
 
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        
         <script>
             async function updateGroupedIssuesByIdentifiers(startDate = null, endDate = null) {
                 let hds2 = {
@@ -893,9 +909,15 @@
                     }
                 });
 
+                return {
+                    date: date,
+                    total_value: item.complaints.length,
+                    current_value: item.complaints.filter(comp => comp.status == 'pending' || comp.status == 'accepted').length,
+                    completed_value: item.complaints.filter(comp => comp.status == 'completed').length
+                }
 
 
-                return { x: date, y: item.y, average: +(((sum / 60) / item.complaints.length).toFixed(2)) };
+                // return { x: date, y: item.y, average: +(((sum / 60) / item.complaints.length).toFixed(2)) };
             })
         
             // Create chart instance
@@ -908,21 +930,66 @@
     
             // Create series
             var series1 = chart.series.push(new am4charts.LineSeries());
-            series1.dataFields.valueY = "y";
-            series1.dataFields.dateX = "x";
+            series1.dataFields.valueY = "total_value";
+            series1.dataFields.dateX = "date";
             series1.name = "Total Complaints";
-            series1.tooltipText = "{name}: [bold]{valueY}[/]";
+            series1.tooltipText = "[bold]{valueY}[/]";
             series1.strokeWidth = 3;
             series1.smoothing = "monotoneX"
     
-            var series2 = chart.series.push(new am4charts.LineSeries());
-            series2.dataFields.valueY = "average";
-            series2.dataFields.dateX = "x";
-            series2.name = "Average Solving";
-            series2.tooltipText = "{name}: [bold]{valueY}[/]";
-            series2.strokeWidth = 3;
-            series2.smoothing = "monotoneX"
+            var series2 = chart.series.push(new am4charts.ColumnSeries());
+            series2.dataFields.valueY = "current_value";
+            series2.dataFields.dateX = "date";
+            series2.name = "Current Complaint";
+            series2.tooltipText = "[bold]{valueY}[/]";
+            series2.strokeWidth = 0;
+            series2.columnWidth = am4core.percent(10);
     
+            var series3 = chart.series.push(new am4charts.LineSeries());
+            series3.dataFields.valueY = "completed_value";
+            series3.dataFields.dateX = "date";
+            series3.name = "Completed Complaints";
+            series3.tooltipText = "[bold]{valueY}[/]";
+            series3.strokeWidth = 3;
+            series3.smoothing = "monotoneX"
+            // series3.fill = "#f00";   
+            
+            series1.stroke = "#BA1F33"
+            series1.fillOpacity = 0.2;
+            series1.fill = "#BA1F33";
+            series1.strokeWidth = 3;
+            series1.propertyFields.stroke = "#BA1F33";
+            series1.propertyFields.fillColor = "#BA1F33";
+
+            var bullet = series1.bullets.push(new am4charts.CircleBullet());
+            bullet.circle.radius = 6;
+            bullet.circle.fill = am4core.color("#BA1F33");
+            bullet.circle.strokeWidth = 3;
+            
+            series2.stroke = "#96C0B7"
+            series2.fillOpacity = 0.2;
+            series2.fill = "#96C0B7";
+            series2.strokeWidth = 3;
+            series2.propertyFields.stroke = "#96C0B7";
+            series2.propertyFields.fillColor = "#96C0B7";
+
+            // var bullet = series2.bullets.push(new am4charts.CircleBullet());
+            // bullet.circle.radius = 6;
+            // bullet.circle.fill = am4core.color("#96C0B7");
+            // bullet.circle.strokeWidth = 3;
+            
+            series3.stroke = "#20BF55"
+            series3.fillOpacity = 0.2;
+            series3.fill = "#20BF55";
+            series3.strokeWidth = 3;
+            series3.propertyFields.stroke = "#20BF55";
+            series3.propertyFields.fillColor = "#20BF55";
+
+            var bullet = series3.bullets.push(new am4charts.CircleBullet());
+            bullet.circle.radius = 6;
+            bullet.circle.fill = am4core.color("#20BF55");
+            bullet.circle.strokeWidth = 3;
+                
             // Add cursor
             chart.cursor = new am4charts.XYCursor();
             chart.cursor.xAxis = dateAxis;
@@ -938,54 +1005,8 @@
 
             let total_waiting_complaints = <%- total_waiting_complaints %>;
 
-            let label_ar = chart.createChild(am4core.Label);
 
-            label_ar.text = `Average Response ${average_complaints_waiting_time} M/C`;
-            label_ar.fontSize = 14;
-            label_ar.align = "center";
-            label_ar.isMeasured = false;
-            label_ar.x = 60;
-            label_ar.y = 16;
 
-            let label_ac = chart.createChild(am4core.Label);
-            label_ac.text = `Average Complete ${average_complaints_complete_time} M/C`;
-            label_ac.fontSize = 14;
-            label_ac.align = "center";
-            label_ac.isMeasured = false;
-            label_ac.x = 60;
-            label_ac.y = 36;
-
-            let label_tc = chart.createChild(am4core.Label);
-            label_tc.text = `Total Complete Time ${total_complaints_complete_time} M/C`;
-            label_tc.fontSize = 14;
-            label_tc.align = "center";
-            label_tc.isMeasured = false;
-            label_tc.x = 60;
-            label_tc.y = 56;
-
-            let label_tcc = chart.createChild(am4core.Label);
-            label_tcc.text = `Total Complaints ${total_complaints} M/C`;
-            label_tcc.fontSize = 14;
-            label_tcc.align = "center";
-            label_tcc.isMeasured = false;
-            label_tcc.x = 60;
-            label_tcc.y = 76;
-
-            let label_tccc = chart.createChild(am4core.Label);
-            label_tccc.text = `Total Completed ${total_completed_complaints} M/C`;
-            label_tccc.fontSize = 14;
-            label_tccc.align = "center";
-            label_tccc.isMeasured = false;
-            label_tccc.x = 60;
-            label_tccc.y = 96;
-
-            let label_twc = chart.createChild(am4core.Label);
-            label_twc.text = `Total Waiting ${total_completed_complaints} M/C`;
-            label_twc.fontSize = 14;
-            label_twc.align = "center";
-            label_twc.isMeasured = false;
-            label_twc.x = 60;
-            label_twc.y = 116;
 
             
         </script>

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const ComplaintQrcodeSchema = new mongoose.Schema({
     location: {
@@ -18,6 +19,11 @@ const ComplaintQrcodeSchema = new mongoose.Schema({
 
     phone_number: {
         type: String,
+        required: true
+    },
+    
+    categories: {
+        type: [String],
         required: true
     },
 
