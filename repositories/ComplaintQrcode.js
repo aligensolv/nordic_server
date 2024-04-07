@@ -11,11 +11,11 @@ class ComplaintQrcodeRepository{
                 const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
 
                 const complaint_qrcode = new ComplaintQrcode({
-                    location, location_owner_name, phone_number, created_at, qrcode_image, categories
+                    location, location_owner_name, phone_number, created_at, categories
                 })
 
                 const qrcode_image = await QrcodeRepository.generateComplaintQrcode({ location_id: complaint_qrcode._id })
-
+                complaint_qrcode.qrcode_image = qrcode_image
                 await complaint_qrcode.save()
 
                 return resolve(complaint_qrcode)
