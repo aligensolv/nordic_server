@@ -61,7 +61,7 @@ class QrcodeRepository{
                 // klage.ryl.no/complaints/${complaint._id}
                 const generated = Qrcode.image(link, { type: 'png' });
 
-                const filename = `complaint_qrcode_${location}_${Randomstring.generate(10)}.png`;
+                const filename = `complaint_qrcode_${location_id}_${Randomstring.generate(10)}.png`;
                 const filePath = `public/qrcodes/${filename}`;
                 const qrStream = generated.pipe(createWriteStream(filePath));
 
