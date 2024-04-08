@@ -89,11 +89,16 @@
                                                                 <%= complaint.status ?? '-' %>
                                                             </td>
                                                             <td class="controls">
+                                                                
+                                                                <a href="/complaints/<%= complaint._id %>" class="btn btn-sm btn-primary">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
                                                                 <button class="btn btn-sm btn-danger"
                                                                     data-toggle="modal"
                                                                     data-target="#deleteModal<%= complaint._id %>">
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
+
                                                             </td>
                                                         </tr>
                                                         <!-- Delete Modal -->

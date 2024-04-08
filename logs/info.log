@@ -1228,3 +1228,12 @@ complaints_qrcodes is not defined {"timestamp":"2024-04-04 16:36:35"}
 [31merror[39m: Unexpected number {"timestamp":"2024-04-05 13:00:38"}
 [31merror[39m: Unexpected token . in JSON at position 5 {"timestamp":"2024-04-05 13:05:39"}
 [31merror[39m: Unexpected token . in JSON at position 5 {"timestamp":"2024-04-05 13:05:39"}
+[31merror[39m: E:\workspace\projects\nordic_park_project\Bilsjekkserverp\views\complaints\view_complaint.ejs:41
+    39|                     <li class="breadcrumb-item"><a href="/">Hjem</a></li>
+    40|                     <li class="breadcrumb-item"><a href="/machines">P-Automater</a></li>
+ >> 41|                     <li class="breadcrumb-item"><a href="/machines"><%= machine.serial %></a></li>
+    42|                     <li class="breadcrumb-item active">QR-Kode</li>
+    43|                     </ol>
+    44|                 </div><!-- /.col -->
+
+machine is not defined {"timestamp":"2024-04-07 23:12:58"}

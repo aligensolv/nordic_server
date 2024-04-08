@@ -25,11 +25,23 @@ router.get('/complaints/qrcodes', uiAsyncWrapper(
     }
 ))
 
-// router.get('/complaints/:id', uiAsyncWrapper(
-//     async (req,res) =>{
-//         return res.status(OK).render('complaints/view_complaint')
-//     }
-// ))
+router.get('/complaints/categories', uiAsyncWrapper(
+    async (req,res) =>{
+        const complaint_categories = await ComplaintCategoryRepository.getAllComplaintCategories()
+        return res.status(OK).render('complaints/categories/index', {
+            complaint_categories
+        })
+    }
+))
+
+router.get('/complaints/:id', uiAsyncWrapper(
+    async (req,res) =>{
+        const complaint = await ComplaintRepository.getComplaintById(req.params.id)
+        return res.status(OK).render('complaints/view_complaint',{
+            complaint
+        })
+    }
+))
 
 
 
@@ -49,14 +61,7 @@ router.get('/complaints/qrcodes/:id', uiAsyncWrapper(
     }
 ))
 
-router.get('/complaints/categories', uiAsyncWrapper(
-    async (req,res) =>{
-        const complaint_categories = await ComplaintCategoryRepository.getAllComplaintCategories()
-        return res.status(OK).render('complaints/categories/index', {
-            complaint_categories
-        })
-    }
-))
+
 
 router.get('/complaints/categories/create', uiAsyncWrapper(
     async (req,res) =>{
