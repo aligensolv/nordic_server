@@ -332,32 +332,35 @@
                 <div id="complaints_waiting_leader" class="col-lg-12"></div>
             </div>
 
-            <div class="col-lg-8 col-md-6">
-                <div class="card card-block card-stretch card-height">
-                    <div class="card-header border-none">
-                        <div class="header-title">
-                            <h4 class="card-title mb-1">Direkte P-Automat status på kart</h4>
-                            <span class="mb-0">Se alle automatene som har fått Avvik eller ute av drift</span>
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header border-none">
+                            <div class="header-title">
+                                <h4 class="card-title mb-1">Direkte P-Automat status på kart</h4>
+                                <span class="mb-0">Se alle automatene som har fått Avvik eller ute av drift</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="cmap" class="layout-3-chart-01"></div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div id="cmap" class="layout-3-chart-01"></div>
+                </div>
+    
+                <div class="col-lg-4">
+                    <div class="card card-block card-stretch card-height rtl-card">
+                    <div class="card-header border-none">
+                        <div class="header-title">
+                            <h4 class="card-title">Rask betjent inngående Avvik</h4>
+                        </div>
+                    </div>
+                    <div id="column_chart"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <div class="card card-block card-stretch card-height rtl-card">
-                <div class="card-header border-none">
-                    <div class="header-title">
-                        <h4 class="card-title">Rask betjent inngående Avvik</h4>
-                    </div>
-                </div>
-                <div id="column_chart"></div>
-                </div>
-            </div>
 
-
+        <div class="row">
             <div class="col-lg-4">
                 <div class="card card-block card-stretch card-height">
                     <div class="card-header border-none">
@@ -384,7 +387,9 @@
                     </div>
                     </div>
             </div>
+        </div>
         
+        <div class="row">
             <div class="col-lg-8">
                 <div class="card card-block card-stretch card-height rtl-card">
                 <div class="card-header border-none">
@@ -409,6 +414,7 @@
                     </div>
                 </div>
             </div>
+        </div>
             <div class="col-lg-12">
                 <div class="card card-block card-stretch card-height ">
                     <div class="card-header border-none">   
@@ -506,84 +512,87 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card card-block card-stretch card-height rule-box averages-card">
-                    <div class="card-header d-flex justify-content-between border-none">
-                        <div class="header-title">
-                            <h4 class="card-title">Gjennomsnitt</h4>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-block card-stretch card-height rule-box averages-card">
+                        <div class="card-header d-flex justify-content-between border-none">
+                            <div class="header-title">
+                                <h4 class="card-title">Gjennomsnitt</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="averages-container">
-                            <div class="average-item">
-                                <i class="fas fa-chart-line average-icon"></i>
-                                <div class="average-details">
-                                    <p class="average-title">Avvik / time</p>
-                                    <h4  class="average-value btn btn-sm btn-primary">
-                                        <%= total_issues_solve_average %>
-                                    </h4>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="average-item">
-                                <i class="fas fa-clock average-icon"></i>
-                                <div class="average-details">
-                                    <p class="average-title">Avvik på vent / Hour</p>
-                                    <h4 id="iswhg-holder" class="average-value btn btn-sm btn-primary">
-                                        <%= total_issues_waiting_average %>
-                                    </h4>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="average-item">
-                                <i class="fas fa-exchange-alt average-icon"></i>
-                                <div class="average-details">
-                                    <p class="average-title">Videresende Avvik / Hour</p>
-                                    <h4 class="average-value btn btn-sm btn-primary">
-                                        <%= total_issues_redirect_average %>
-                                    </h4>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="average-item">
-                                <i class="fas fa-comment average-icon"></i>
-                                <div class="average-details">
-                                    <p class="average-title">SMS</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h4 id="sms-holder" class="average-value btn btn-sm btn-primary">
-                                            <%= sms_count %>
+                        <div class="card-body">
+                            <div class="averages-container">
+                                <div class="average-item">
+                                    <i class="fas fa-chart-line average-icon"></i>
+                                    <div class="average-details">
+                                        <p class="average-title">Avvik / time</p>
+                                        <h4  class="average-value btn btn-sm btn-primary">
+                                            <%= total_issues_solve_average %>
                                         </h4>
-                                        <a href="/reports/sms" class="btn btn-sm btn-info">See All</a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="average-item">
+                                    <i class="fas fa-clock average-icon"></i>
+                                    <div class="average-details">
+                                        <p class="average-title">Avvik på vent / Hour</p>
+                                        <h4 id="iswhg-holder" class="average-value btn btn-sm btn-primary">
+                                            <%= total_issues_waiting_average %>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="average-item">
+                                    <i class="fas fa-exchange-alt average-icon"></i>
+                                    <div class="average-details">
+                                        <p class="average-title">Videresende Avvik / Hour</p>
+                                        <h4 class="average-value btn btn-sm btn-primary">
+                                            <%= total_issues_redirect_average %>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="average-item">
+                                    <i class="fas fa-comment average-icon"></i>
+                                    <div class="average-details">
+                                        <p class="average-title">SMS</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h4 id="sms-holder" class="average-value btn btn-sm btn-primary">
+                                                <%= sms_count %>
+                                            </h4>
+                                            <a href="/reports/sms" class="btn btn-sm btn-info">See All</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-lg-8 col-md-6">
-                <div class="card card-block card-stretch card-height">
-                <div class="card-header border-none">
-                    <div class="header-title">
-                        <h4 class="card-title">Total gjennomsnittstid for å løse Avvikn</h4>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div id="layout-1-chart-06"></div>
-                  
-                    <div class="d-flex align-items-center">
-                        <label class="mr-3">Filter Data</label>
-                        <div>
-                            <div class="date" id="reservationdateF" data-target-input="nearest">
-                                <div class="input-group-append" data-target="#reservationdateF" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-    
+                
+                <div class="col-lg-8 col-md-6">
+                    <div class="card card-block card-stretch card-height">
+                    <div class="card-header border-none">
+                        <div class="header-title">
+                            <h4 class="card-title">Total gjennomsnittstid for å løse Avvikn</h4>
                         </div>
-                      </div>
-                </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="layout-1-chart-06"></div>
+                      
+                        <div class="d-flex align-items-center">
+                            <label class="mr-3">Filter Data</label>
+                            <div>
+                                <div class="date" id="reservationdateF" data-target-input="nearest">
+                                    <div class="input-group-append" data-target="#reservationdateF" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                          </div>
+                    </div>
+                    </div>
                 </div>
             </div>
        

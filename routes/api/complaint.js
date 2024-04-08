@@ -17,7 +17,7 @@ import {
 import multer, { diskStorage } from 'multer';
 import Randomstring from "randomstring"
 import path from "path";
-import { createComplaintQrcode, deleteAllComplaintQrcodes, deleteComplaintQrcodeById, getComplaintQrcodeById } from "../../controllers/complaint_qrcode_controller.js";
+import { createComplaintQrcode, deleteAllComplaintQrcodes, deleteComplaintQrcodeById, getComplaintQrcodeById, updateComplaintQrcodeById } from "../../controllers/complaint_qrcode_controller.js";
 import { createComplaintCategory, deleteAllComplaintCategories, deleteComplaintCategoryById, getAllComplaintCategories } from "../../controllers/complaint_category_controller.js";
 
 const violations_storage = diskStorage({
@@ -56,6 +56,7 @@ router.get('/complaints/client/:id', getAllClientComplaints)
 
 router.post('/complaints/qrcodes/create', createComplaintQrcode)
 router.get('/complaints/qrcodes/:id', getComplaintQrcodeById)
+router.put('/complaints/qrcodes/:id', updateComplaintQrcodeById)
 router.delete('/complaints/qrcodes/:id', deleteComplaintQrcodeById)
 router.delete('/complaints/qrcodes', deleteAllComplaintQrcodes)
 

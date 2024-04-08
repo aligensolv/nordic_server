@@ -61,6 +61,15 @@ router.get('/complaints/qrcodes/:id', uiAsyncWrapper(
     }
 ))
 
+router.get('/complaints/qrcodes/:id/update', uiAsyncWrapper(
+    async (req,res) =>{
+        const complaint_qrcode = await ComplaintQrcodeRepository.getComplaintQrcodeById(req.params.id)
+        return res.status(OK).render('complaints/qrcodes/update', {
+            complaint_qrcode
+        })
+    }
+))
+
 
 
 router.get('/complaints/categories/create', uiAsyncWrapper(
