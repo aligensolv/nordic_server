@@ -304,16 +304,23 @@
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-1" style="display: flex; flex-direction: column;justify-content: space-between;">
-                        <i class="far fa-clock" style="margin-bottom: 0.5rem; font-size: 1.5rem; display: flex;"></i>
+                        <i class="far fa-clock" style="margin-bottom: 0.5rem; font-size: 1.5rem; display: flex;" title="total waiting time"></i>
                         <span style="margin-bottom: 0.5rem;"><%= total_waiting_complaints %> Rek</span>
-                        <i class="far fa-check-circle" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
-                        <span style="margin-top: 0.5rem;"> Rek</span>
-                        <i class="fas fa-stopwatch" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
-                        <span style="margin-top: 0.5rem;"><%= total_waiting_complaints %></span>
-                        <i class="fas fa-check-double" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
+
+                        <i class="far fa-clock" style="margin-top: 0.5rem; font-size: 1.5rem;" title="average waiting time"></i>
+                        <span style="margin-top: 0.5rem;"><%= average_complaints_waiting_time %> H/C</span>
+
+                        <i class="fas fa-stopwatch" style="margin-top: 0.5rem; font-size: 1.5rem;" title="total waiting complaints"></i>
+                        <span style="margin-top: 0.5rem;"><%= total_waiting_complaints %> Rek</span>
+
+                        <i class="fas fa-check-double" style="margin-top: 0.5rem; font-size: 1.5rem;" title="total completed complaints"></i>
                         <span style="margin-top: 0.5rem;"><%= total_completed_complaints %> Rek</span>
-                        <i class="fas fa-list-ol" style="margin-top: 0.5rem; font-size: 1.5rem;"></i>
-                        <span style="margin-top: 0.5rem;">0 M/C</span>
+
+                        <i class="fas fa-chart-line" style="margin-top: 0.5rem; font-size: 1.5rem;" title="average complete time"></i>
+                        <span style="margin-top: 0.5rem;"><%= average_complaints_complete_time %> H/C</span>
+
+                        <i class="fas fa-chart-area" style="margin-top: 0.5rem; font-size: 1.5rem;" title="total complete hours"></i>
+                        <span style="margin-top: 0.5rem;"><%= total_complaints_complete_time %> Hours</span>
                     </div>
 
                     <div class="col-lg-11">
@@ -757,11 +764,27 @@
             xcv = xcv.map(e => {
                 let val = +(e.value / e.count).toFixed(2)
 
-                let parts = val.toString().split('.')
-                let hours = +parts[0]
-                let minutes = Math.floor((+parts[1] || 0) / 100) * 60
+                // let parts = val.toString().split('.')
+                // let hours = +parts[0]
+                // let minutes = Math.floor((+parts[1] || 0) / 100) * 60
 
-                let formatted = minutes == 0 ? `${hours}H ` : `${hours}H ${Math.max(0, minutes)}M`
+                let formatted
+
+                if(val < 1 ){
+                    let tem = Math.round(val * 60)
+                    formatted = `${tem} M`
+                }else{
+                    let parts = val.toString().split('.')
+                    let hours = +parts[0]
+
+                    let minutes = parts[1] == undefined ? 0 : Math.round((+parts[1] / 100) * 60)
+
+                    if(minutes > 0){
+                        formatted = `${hours} H ${minutes} M`
+                    }else{
+                        formatted = `${hours} H`
+                    }
+                }
                 
                 return {
                     average: val,
@@ -843,11 +866,24 @@
             mdr.sort((a,b) => a.totalWaitingTime - b.totalWaitingTime);
 
             let datax = mdr.map(e => {
-                let parts = e.totalWaitingTime.toString().split('.')
-                let hours = +parts[0]
-                let minutes = Math.floor((+parts[1] || 0) / 100) * 60
 
-                let formatted = minutes == 0 ? `${hours} H ` : `${hours}H ${Math.max(0, minutes)} M`
+                let formatted
+
+                if(e.totalWaitingTime < 1 ){
+                    let tem = Math.round(e.totalWaitingTime * 60)
+                    formatted = `${tem} M`
+                }else{
+                    let parts = e.totalWaitingTime.toString().split('.')
+                    let hours = +parts[0]
+
+                    let minutes = parts[1] == undefined ? 0 : Math.round((+parts[1] / 100) * 60)
+
+                    if(minutes > 0){
+                        formatted = `${hours} H ${minutes} M`
+                    }else{
+                        formatted = `${hours} H`
+                    }
+                }
                 return {
                     user: e.user,
                     totalWaitingTime: e.totalWaitingTime,
