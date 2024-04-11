@@ -95,7 +95,7 @@
                                             <tr>
                                                 <td><%= pdf.createdAt %></td>
                                                 <td><%= pdf.userId?.name ?? 'Fjernet'  %></td>
-                                                <td><%= pdf.userId?.accountId ?? "Ukjent"  %></td>
+                                                <td><%= pdf.userId?.pnid ?? "Ukjent"  %></td>
                                                 <td>
                                                     <a href="/pdfs/<%= pdf._id %>" class="btn btn-info btn-sm">
                                                         <i class="fa fa-file-pdf"></i>
