@@ -11,10 +11,6 @@ const UserSchema = new Schema({
     required: true,
     unique: true
   },
-  accountId:{
-    type: String,
-    default: null
-  },
   created_at: {
     type: String,
     required: true

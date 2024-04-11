@@ -4,6 +4,7 @@ const router = Router()
 
 import multer, { diskStorage } from 'multer';
 import path from 'path';
+import Randomstring from 'randomstring'
 
 // Set up multer
 const storage = diskStorage({
