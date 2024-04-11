@@ -281,6 +281,10 @@ class ComplaintRepository{
                     }
                 ])
 
+                if(result.length == 0){
+                    return resolve(0)
+                }
+
                 const count = Math.floor(result[0].total_complete_time / 60)
                 return resolve(count)
             })
@@ -300,6 +304,10 @@ class ComplaintRepository{
                         }
                     }
                 ])
+                if(result.length == 0){
+                    return resolve(0)
+                }
+
                 const count = Math.floor(result[0].average_complete_time / 60)
 
                 return resolve(count)

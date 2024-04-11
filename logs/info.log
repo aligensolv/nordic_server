@@ -1238,3 +1238,4 @@ complaints_qrcodes is not defined {"timestamp":"2024-04-04 16:36:35"}
 
 machine is not defined {"timestamp":"2024-04-07 23:12:58"}
 [31merror[39m: Could not find matching close tag for "<%-". {"timestamp":"2024-04-08 21:51:44"}
+[31merror[39m: Connection Error: Authentication failed. {"timestamp":"2024-04-11 20:43:41"}
