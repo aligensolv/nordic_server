@@ -292,7 +292,7 @@ router.post('/issues/:id/report', upload.single('report') ,async (req, res) => {
         let lastActiveTime = moment(moment(machine.lastActiveTime).format('DD.MM.YYYY HH:mm:ss'))
         let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
 
-        let diff = moment.duration(currentTime.diff(lastActiveTime))
+        let diff = moment.duration(currentTime.diff(moment(lastActiveTime, 'DD.MM.YYYY HH:mm:ss')))
         newTotalTime = machine.totalOfflineTime + diff.asHours()
 
         let machineActivation = await Machine.updateOne({
