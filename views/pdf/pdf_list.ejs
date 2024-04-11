@@ -311,16 +311,16 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'DD.MM.YYYY',
+        format: 'YYYY-MM-DD',
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('DD.MM.YYYY')
+        let date =  moment(e.date._d).format('YYYY-MM-DD')
         filterTableByDate(date)
     })
 
     $(document).ready(function() {
-      const now = moment().format('DD.MM.YYYY')
+      const now = moment().format('YYYY-MM-DD')
       filterTableByDate(now)
     });
 
