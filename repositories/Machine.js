@@ -160,7 +160,7 @@ class MachineRepository{
                 let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
         
                 let diff = moment.duration(currentTime.diff(lastActiveTime))
-                let newTotalTime = machine.totalWorkingTime + +diff.asHours().toFixed(2)
+                let newTotalTime = machine.totalWorkingTime + diff.asHours()
                 const result = await this.updateMachine({
                     machine_id,
                     status: 'inactive', totalWorkingTime: newTotalTime, lastActiveTime: newLastActiveTime 
