@@ -7,7 +7,7 @@ class ViolationRepository{
     static async storeViolation({ user, information }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const current_date = moment().format('DD.MM.YYYY HH:mm:ss')
+                const current_date = moment().format('YYYY-MM-DD')
                 const current_time = moment().format('HH:mm:ss')
 
                 const violation = await Violation.create({

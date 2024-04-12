@@ -273,7 +273,8 @@
         const value = selectVio.value;
 
         try {
-            let responseData = await fetchData(`/api/violations/count`);
+            let responseData = await fetchData(`/api/violations/ks/${value}`);
+            console.log(responseData);
             let responseRmData = await fetchData(`/api/violations/removed/count`);
             vioHolder.textContent = responseData;
             vioRmHolder.textContent = responseRmData;
