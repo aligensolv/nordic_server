@@ -16,3 +16,10 @@ export const deleteAllPdfs = asyncWrapper(
         return res.status(OK).json(result);
     }
 )
+
+export const archieveAllPdfs = asyncWrapper(
+    async (req, res) => {
+        const result = await PdfRepository.archieveAllPdfs()
+        return res.status(OK).json(result);
+    }
+)

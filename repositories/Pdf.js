@@ -5,6 +5,7 @@ import ViolationRepository from "./Violation.js"
 import CustomError from "../interfaces/custom_error_class.js"
 import { NOT_FOUND } from "../constants/status_codes.js"
 import { static_absolute_files_host } from "../config.js"
+import PDFArchieveModel from "../models/PdfArchieve.js"
 
 class PdfRepository{
     static async storePdf({ filename, user_id }){
@@ -81,6 +82,40 @@ class PdfRepository{
                 })
                 
                 return resolve(pdfs)
+            })
+        )
+    }
+
+    static async archieveAllPdfs(){
+        return new Promise(
+            promiseAsyncWrapper(async (resolve) => {
+                let pdfs = await this.getAllPdfs()
+
+                for(let pdf of pdfs){
+                    if(pdf == null){
+                        continue
+                    }
+                    
+                    let isExisting = await PDFArchieveModel.findOne({
+                        pnid: pdf.userId.pnid,
+                        link:pdf.link,
+                        createdAt:pdf.createdAt
+                    })
+
+                    if(isExisting){
+                        continue;
+                    }
+
+                    let archieve = await PDFArchieveModel.create({
+                        name:pdf.name,
+                        username:pdf.userId.name,
+                        pnid:pdf.userId.pnid,
+                        link:pdf.link,
+                        created_at:pdf.createdAt,
+                    })
+                }
+                
+                return resolve('done')
             })
         )
     }

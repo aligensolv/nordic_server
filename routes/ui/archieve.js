@@ -5,7 +5,7 @@ const router = Router()
 
 
 
-router.get('/archieves', async (req, res) => {
+router.get('/archieves' , async (req, res) => {
 
     const pdfs = await ArchieveRepository.getAllArchives({})
     res.render('pdfArchieve/pdf_list', {
