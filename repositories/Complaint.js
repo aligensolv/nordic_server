@@ -328,6 +328,10 @@ class ComplaintRepository{
                         }
                     }
                 ])
+                if(result.length == 0){
+                    return resolve(0)
+                }
+
                 const average = Math.floor(result[0].average_waiting_time / 60)
 
                 return resolve(average)
