@@ -238,7 +238,7 @@
                 } else {
                     Toast.fire({
                         icon: 'error',
-                        title: (await response.json()).toString()
+                        title: (await response.json()).error.toString()
                     })
                 }
             })
