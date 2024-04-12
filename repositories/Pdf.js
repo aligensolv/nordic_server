@@ -99,7 +99,6 @@ class PdfRepository{
                     let isExisting = await PDFArchieveModel.findOne({
                         pnid: pdf.userId.pnid,
                         link:pdf.link,
-                        createdAt:pdf.createdAt
                     })
 
                     if(isExisting){
