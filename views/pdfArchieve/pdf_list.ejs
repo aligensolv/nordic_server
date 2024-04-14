@@ -285,6 +285,26 @@
             });
     }
 
+    function filterTableByDate(date) {
+      oTable = $('#example1').dataTable();
+      oTable.fnFilter(date, 0);
+    }
+
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'YYYY-MM-DD',
+    })
+
+    $('#reservationdate').on('change.datetimepicker',function(e) {
+        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        filterTableByDate(date)
+    })
+
+    $(document).ready(function() {
+      const now = moment().format('YYYY-MM-DD')
+      filterTableByDate(now)
+    });
+
 
 
 </script>
