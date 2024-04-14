@@ -26,7 +26,7 @@ router.get('/imeis/:id/edit',async (req,res) =>{
   }
 })
 
-router.get('/imeis/new',async (req,res) =>{
+router.get('/imeis/create',async (req,res) =>{
   try{
 
     return res.status(OK).render('imeis/create')
