@@ -147,6 +147,18 @@
 
 <%- include('../components/scripts') %>
 
+<script>
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'YYYY-MM-DD'
+    })
+
+    $('#reservationdate').on('change.datetimepicker',function(e) {
+        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        console.log(date);
+    })
+</script>
+
 <!-- DataTables  & Plugins -->
 <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
