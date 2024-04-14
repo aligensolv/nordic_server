@@ -161,17 +161,6 @@
 <script src="/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-<script>
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'L'
-    })
-
-    $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('DD.MM.YYYY')
-        console.log(date);
-    })
-</script>
 
 <script>
     $(function () {
@@ -292,16 +281,16 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
-        format: 'YYYY-MM-DD',
+        format: 'DD.MM.YYYY HH:mm:ss',
     })
 
     $('#reservationdate').on('change.datetimepicker',function(e) {
-        let date =  moment(e.date._d).format('YYYY-MM-DD')
+        let date =  moment(e.date._d).format('DD.MM.YYYY HH:mm:ss')
         filterTableByDate(date)
     })
 
     $(document).ready(function() {
-      const now = moment().format('YYYY-MM-DD')
+      const now = moment().format('DD.MM.YYYY HH:mm:ss')
       filterTableByDate(now)
     });
 
