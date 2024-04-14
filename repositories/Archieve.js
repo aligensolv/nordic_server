@@ -6,7 +6,7 @@ class ArchieveRepository{
     static async storeArchieve({ pdf, user }){
         return new Promise(
             promiseAsyncWrapper(async (resolve) => {
-                const created_at = moment().format('DD.MM.YYYY HH:mm:ss')
+                const created_at = moment().format('YYYY-MM-DD')
 
                 let archieve = await PdfArchieve.create({
                     name: pdf.name,
