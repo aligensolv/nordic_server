@@ -453,3 +453,11 @@
 {"level":"error","message":"E:\\workspace\\projects\\nordic_park_project\\Bilsjekkserverp\\views\\complaints\\view_complaint.ejs:41\n    39|                     <li class=\"breadcrumb-item\"><a href=\"/\">Hjem</a></li>\r\n    40|                     <li class=\"breadcrumb-item\"><a href=\"/machines\">P-Automater</a></li>\r\n >> 41|                     <li class=\"breadcrumb-item\"><a href=\"/machines\"><%= machine.serial %></a></li>\r\n    42|                     <li class=\"breadcrumb-item active\">QR-Kode</li>\r\n    43|                     </ol>\r\n    44|                 </div><!-- /.col -->\r\n\nmachine is not defined","timestamp":"2024-04-07 23:12:58"}
 {"level":"error","message":"Could not find matching close tag for \"<%-\".","timestamp":"2024-04-08 21:51:44"}
 {"level":"error","message":"Connection Error: Authentication failed.","timestamp":"2024-04-11 20:43:41"}
+{"level":"error","message":"User 'test' does not exist","timestamp":"2024-04-14 19:07:22"}
+{"level":"error","message":"User 'test' does not exist","timestamp":"2024-04-14 19:07:22"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:08:07"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:08:07"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:13:09"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:13:09"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:13:15"}
+{"level":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"totalWorkingTime\"","timestamp":"2024-04-14 19:13:15"}

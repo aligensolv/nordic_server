@@ -129,8 +129,9 @@ class MachineRepository{
                     return reject(machine_not_found_error)
                 }
                 
-                const newLastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss');
-                const totalWorkingTime = machine.totalWorkingTime + moment.duration(moment().diff(moment(machine.lastActiveTime))).asHours();
+                const newLastActiveTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'), 'DD.MM.YYYY HH:mm:ss');
+                let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'), 'DD.MM.YYYY HH:mm:ss')
+                const totalWorkingTime = machine.totalWorkingTime + moment.duration(currentTime.diff(newLastActiveTime)).asHours();
                 const result = await this.updateMachine({ status: 'waiting', lastActiveTime: newLastActiveTime, totalWorkingTime });
 
                 await IssueNotificationRepository.storeIssueNotification({
@@ -157,7 +158,7 @@ class MachineRepository{
                 let newLastActiveTime = moment().format('DD.MM.YYYY HH:mm:ss')
         
                 let lastActiveTime = moment(moment(machine.lastActiveTime).format('DD.MM.YYYY HH:mm:ss'), 'DD.MM.YYYY HH:mm:ss')
-                let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'))
+                let currentTime = moment(moment().format('DD.MM.YYYY HH:mm:ss'), 'DD.MM.YYYY HH:mm:ss')
         
                 let diff = moment.duration(currentTime.diff(lastActiveTime))
                 let newTotalTime = machine.totalWorkingTime + diff.asHours()
